@@ -1,4 +1,9 @@
 ﻿package manager.security.sensorcreators;
 
-public class SensorCreator {
+import manager.security.sensors.Sensor;
+
+import java.util.UUID;
+
+public abstract class SensorCreator {
+    public abstract Sensor CreateSensor(UUID floorId, UUID roomId);
 }

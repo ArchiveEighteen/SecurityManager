@@ -1,4 +1,13 @@
 ﻿package manager.security.sensorcreators;
 
-public class TemperatureSensorCreator {
+import manager.security.sensors.Sensor;
+import manager.security.sensors.TemperatureSensor;
+
+import java.util.UUID;
+
+public class TemperatureSensorCreator extends SensorCreator{
+    @Override
+    public Sensor CreateSensor(UUID floorId, UUID roomId) {
+        return new TemperatureSensor(floorId, roomId);
+    }
 }
