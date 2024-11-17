@@ -1,4 +1,4 @@
-﻿package manager;
+package manager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +14,14 @@ public class SecurityManager {
         return floor;
     }
 
+    public void addFloor(Floor floor) {
+        floors.add(floor);
+    }
+
+    public void addFloorList(List<Floor> floorList) {
+        floors.addAll(floorList);
+    }
+
     public List<Floor> getFloors() {
         return floors;
     }
@@ -21,6 +29,7 @@ public class SecurityManager {
     public boolean deleteFloor(UUID floorId) {
         return floors.removeIf(f -> f.getId().equals(floorId));
     }
+
     public boolean deleteRoom(UUID floorId, UUID roomId) {
         for(Floor floor : floors) {
             if(floor.getId().equals(floorId)) {

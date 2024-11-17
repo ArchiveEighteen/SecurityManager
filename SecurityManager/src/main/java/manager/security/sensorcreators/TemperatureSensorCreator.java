@@ -1,4 +1,4 @@
-﻿package manager.security.sensorcreators;
+package manager.security.sensorcreators;
 
 import manager.security.sensors.Sensor;
 import manager.security.sensors.TemperatureSensor;
