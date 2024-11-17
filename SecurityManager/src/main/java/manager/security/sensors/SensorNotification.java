@@ -1,4 +1,4 @@
-﻿package manager.security.sensors;
+package manager.security.sensors;
 
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;

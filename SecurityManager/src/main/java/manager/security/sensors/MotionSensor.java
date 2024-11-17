@@ -1,4 +1,4 @@
-﻿package manager.security.sensors;
+package manager.security.sensors;
 
 import java.util.UUID;
 
@@ -10,5 +10,9 @@ public class MotionSensor extends Sensor {
     }
     public MotionSensor(UUID floorId, UUID sensorId) {
         super(floorId, sensorId);
+    }
+
+    public MotionSensor(UUID id, UUID floorId, UUID roomId, boolean status) {
+        super(id, floorId, roomId, status);
     }
 }

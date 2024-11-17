@@ -1,4 +1,4 @@
-﻿package manager;
+package manager;
 
 import manager.security.sensorcreators.MotionSensorCreator;
 import manager.security.sensorcreators.OpenSensorCreator;
@@ -6,25 +6,34 @@ import manager.security.sensorcreators.SensorCreator;
 import manager.security.sensorcreators.TemperatureSensorCreator;
 import manager.security.sensors.Sensor;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class Room {
-    private final UUID id = UUID.randomUUID();
-    private final UUID floorId;
+    private UUID id;
+    private UUID floorId;
     private int windowsAmount;
     private int doorsAmount;
     private double area;
-    private final List<Sensor> sensors = new ArrayList<>();
+    private List<Sensor> sensors;
 
-    public Room(UUID floorId, int windowsAmount, int doorsAmount, double area) {
-        this.floorId = floorId;
-
-        UpdateRoomParameters(windowsAmount, doorsAmount, area);
+    protected Room(){
+        id = null;
+        floorId = null;
+        windowsAmount = 0;
+        doorsAmount = 0;
+        area = 0.0;
+        sensors = new ArrayList<>();
     }
 
-    public void UpdateRoomParameters(int windowsAmount, int doorsAmount, double area) {
+    public Room(UUID floorId, int windowsAmount, int doorsAmount, double area) {
+        id = UUID.randomUUID();
+        this.floorId = floorId;
+        sensors = new ArrayList<>();
+
+        updateRoomParameters(windowsAmount, doorsAmount, area);
+    }
+
+    public void updateRoomParameters(int windowsAmount, int doorsAmount, double area) {
         this.windowsAmount = windowsAmount;
         this.doorsAmount = doorsAmount;
         this.area = area;
@@ -72,7 +81,13 @@ public class Room {
         return area;
     }
     public List<Sensor> getSensors() {
-        return sensors;
+        return Collections.unmodifiableList(sensors);
     }
 
+    protected void setId(UUID id) {this.id = id;}
+    protected void setFloorId(UUID floorId) {this.floorId = floorId;}
+    protected void setWindowsAmount(int windowsAmount) {this.windowsAmount = windowsAmount;}
+    protected void setDoorsAmount(int doorsAmount) {this.doorsAmount = doorsAmount;}
+    protected void setArea(double area) {this.area = area;}
+    protected void setSensors(List<Sensor> sensors) {this.sensors = sensors;}
 }

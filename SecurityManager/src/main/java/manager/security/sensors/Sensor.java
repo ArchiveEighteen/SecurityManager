@@ -1,21 +1,31 @@
-﻿package manager.security.sensors;
+package manager.security.sensors;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.Flow;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public abstract class Sensor implements Flow.Publisher<SensorNotification> {
-    protected final UUID id = UUID.randomUUID();
-    protected final AtomicBoolean status = new AtomicBoolean(false);
+    protected UUID id;
+    protected AtomicBoolean status;
     protected UUID floorId;
     protected UUID roomId;
     protected List<Flow.Subscriber<? super SensorNotification>> subscribers = new ArrayList<>();
 
     public Sensor(UUID floorId, UUID roomId) {
+        id = UUID.randomUUID();
         this.floorId = floorId;
         this.roomId = roomId;
+        status = new AtomicBoolean(false);
+    }
+
+    protected Sensor(UUID id, UUID floorId, UUID roomId, boolean status) {
+        this.id = id;
+        this.floorId = floorId;
+        this.roomId = roomId;
+        this.status = new AtomicBoolean(status);
     }
 
     public AtomicBoolean getStatus(){
@@ -23,6 +33,9 @@ public abstract class Sensor implements Flow.Publisher<SensorNotification> {
     }
     public UUID getId(){
         return id;
+    }
+    public List<Flow.Subscriber<? super SensorNotification>> getSubscribers() {
+        return Collections.unmodifiableList(subscribers);
     }
 
     protected void trigger(){
