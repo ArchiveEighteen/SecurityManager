@@ -13,25 +13,30 @@ import java.util.UUID;
 public class Room {
     private final UUID id = UUID.randomUUID();
     private final UUID floorId;
-    private final int windowsAmount;
-    private final  int doorsAmount;
-    private final double area;
+    private int windowsAmount;
+    private int doorsAmount;
+    private double area;
     private final List<Sensor> sensors = new ArrayList<>();
 
     public Room(UUID floorId, int windowsAmount, int doorsAmount, double area) {
         this.floorId = floorId;
+
+        UpdateRoomParameters(windowsAmount, doorsAmount, area);
+    }
+
+    public void UpdateRoomParameters(int windowsAmount, int doorsAmount, double area) {
         this.windowsAmount = windowsAmount;
         this.doorsAmount = doorsAmount;
         this.area = area;
 
-        List<SensorCreator> sensorCreators = GetSensorCreators(windowsAmount, doorsAmount, area);
+        List<SensorCreator> sensorCreators = getSensorCreators(windowsAmount, doorsAmount, area);
 
         for(var sensorCreator : sensorCreators) {
             sensors.add(sensorCreator.CreateSensor(floorId, id));
         }
     }
 
-    private List<SensorCreator> GetSensorCreators(int windowsAmount, int doorsAmount, double area) {
+    private List<SensorCreator> getSensorCreators(int windowsAmount, int doorsAmount, double area) {
         List<SensorCreator> sensorCreators = new ArrayList<>();
 
         // TODO: Read from file that contains standards for amount of sensors per room, create sensor creators
