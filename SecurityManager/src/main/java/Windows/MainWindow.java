@@ -1,5 +1,7 @@
 package Windows;
 
+import manager.SecurityManager;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
@@ -7,9 +9,12 @@ import java.awt.event.ComponentEvent;
 import java.util.Random;
 
 public class MainWindow extends JFrame {
-
+    SecurityManager manager = new SecurityManager();
     private JPanel floorPanel;
-
+    JPanel topPanel;
+    JLabel floorLabel;
+    JPanel containerPanel;
+    JMenuBar menuBar = new JMenuBar();
     public MainWindow() {
         setTitle("Security-manager Simulator");
         setSize(800, 600);
@@ -19,7 +24,6 @@ public class MainWindow extends JFrame {
         getContentPane().setBackground(new Color(200, 220, 240)); // Колір фону головного вікна
 
         // Панель меню
-        JMenuBar menuBar = new JMenuBar();
         menuBar.setBackground(Color.decode("#DAEBF7"));
         menuBar.setFont(new Font("Inter", Font.PLAIN, 18));
 
@@ -48,7 +52,6 @@ public class MainWindow extends JFrame {
         menuSimulation.add(startSimulation);
         menuSimulation.add(stopSimulation);
 
-
         menuBar.add(menuExit);
         menuBar.add(menuTools);
         menuBar.add(menuFloors);
@@ -56,18 +59,18 @@ public class MainWindow extends JFrame {
         menuBar.add(menuSimulation);
         setJMenuBar(menuBar);
 
-        JPanel topPanel = new JPanel(new BorderLayout());
+        topPanel = new JPanel(new BorderLayout());
         topPanel.setBackground(new Color(200, 220, 240));
 
         // Лейбл для підпису поверху
-        JLabel floorLabel = new JLabel("  Floor 1", JLabel.LEFT);
+        floorLabel = new JLabel("  Floor 1", JLabel.LEFT);
         floorLabel.setFont(new Font("Inter", Font.BOLD, 20));
         topPanel.add(floorLabel, BorderLayout.NORTH);
 
         add(topPanel, BorderLayout.NORTH);
 
         // Панель-контейнер для центрованого floorPanel
-        JPanel containerPanel = new JPanel(new GridBagLayout());
+        containerPanel = new JPanel(new GridBagLayout());
         containerPanel.setBackground(Color.decode("#73A3C8"));
 
         // Ініціалізація floorPanel
@@ -143,8 +146,65 @@ public class MainWindow extends JFrame {
         return label;
     }
 
+
     public static void main(String[] args) {
-        // Запуск GUI
         SwingUtilities.invokeLater(MainWindow::new);
+    }
+
+
+    public static void AddFloor(){
+
+    }
+
+    public static void DeleteFloor(){
+
+    }
+
+    public static void AddRoom(){
+
+    }
+
+    public static void EditRoom(){
+
+    }
+
+    public static void DeleteRoom(){
+
+    }
+
+    public static void ShowLog(){
+
+    }
+
+    public static void StartSimulation(){
+
+    }
+
+    public static void StopSimulation(){
+
+    }
+
+    public static void CloseProgram(){
+
+    }
+
+    public static void GenerateFloorView(){
+
+    }
+
+    public static void ChangeStateOfSensor(){
+
+    }
+
+    public static void OnMotionSensorTriggered(int a, int b, int c){
+        //не пам'ятаю що там воно приймає як параметри як дойду поміняю
+    }
+
+    public static void OnTemperaturSensorTriggered(int a, int b, int c){
+
+    }
+
+    public static void OnOpenSensorTriggered(int a, int b, int c){
+
     }
 }
