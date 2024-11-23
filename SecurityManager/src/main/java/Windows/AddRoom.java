@@ -15,14 +15,16 @@ public class AddRoom extends JDialog {
     private JSpinner doorSensorsSpinner;
     private JSpinner windowSensorsSpinner;
 
-    public AddRoom() {
+    public AddRoom(JFrame parent) {
         setTitle("Add Room");
         setSize(600, 400); // Set window size to 600x400
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(parent);
         setLayout(new BorderLayout());
 
         // Main panel
         contentPane = new JPanel();
+        contentPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         contentPane.setLayout(new GridBagLayout());
         contentPane.setBackground(new Color(200, 220, 240)); // Set background color
         GridBagConstraints gbc = new GridBagConstraints();
@@ -65,54 +67,10 @@ public class AddRoom extends JDialog {
         doorsSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
         contentPane.add(doorsSpinner, gbc);
 
-        // Row 4: Temperature sensor
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        JLabel temperatureLabel = new JLabel("Temperature sensor");
-        temperatureLabel.setFont(labelFont);
-        contentPane.add(temperatureLabel, gbc);
 
-        gbc.gridx = 1;
-        temperatureSensorCheckBox = new JCheckBox();
-        temperatureSensorCheckBox.setBackground(new Color(200, 220, 240)); // Set background color for the checkbox area
-        contentPane.add(temperatureSensorCheckBox, gbc);
-
-        // Row 5: Motion sensors
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        JLabel motionLabel = new JLabel("Motion sensors");
-        motionLabel.setFont(labelFont);
-        contentPane.add(motionLabel, gbc);
-
-        gbc.gridx = 1;
-        motionSensorsSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
-        contentPane.add(motionSensorsSpinner, gbc);
-
-        // Row 6: Sensor for doors
-        gbc.gridx = 0;
-        gbc.gridy = 5;
-        JLabel doorSensorLabel = new JLabel("Sensor for doors");
-        doorSensorLabel.setFont(labelFont);
-        contentPane.add(doorSensorLabel, gbc);
-
-        gbc.gridx = 1;
-        doorSensorsSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
-        contentPane.add(doorSensorsSpinner, gbc);
-
-        // Row 7: Sensor for windows
-        gbc.gridx = 0;
-        gbc.gridy = 6;
-        JLabel windowSensorLabel = new JLabel("Sensor for Windows");
-        windowSensorLabel.setFont(labelFont);
-        contentPane.add(windowSensorLabel, gbc);
-
-        gbc.gridx = 1;
-        windowSensorsSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
-        contentPane.add(windowSensorsSpinner, gbc);
-
-        // Buttons panel
         // Buttons panel
         JPanel buttonsPanel = new JPanel();
+        buttonsPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
         buttonsPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); // Add horizontal and vertical gaps
         buttonsPanel.setBackground(new Color(200, 220, 240));
 
@@ -152,10 +110,10 @@ public class AddRoom extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        AddRoom dialog = new AddRoom();
+    public static void main(String[] args, JFrame parent) {
+        AddRoom dialog = new AddRoom(parent);
         dialog.setVisible(true);
-        System.exit(0);
+//        System.exit(0);
     }
 }
 
@@ -172,7 +130,7 @@ class RoundedButton extends JButton {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         g2.setColor(getBackground());
-        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 10, 10);
 
         // Draw the button's text
         g2.setColor(getForeground());
