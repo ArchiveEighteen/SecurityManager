@@ -1,12 +1,15 @@
 package Windows;
 
+import manager.Room;
 import manager.SecurityManager;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.UUID;
 
 public class MainWindow extends JFrame {
     SecurityManager manager = new SecurityManager();
@@ -15,6 +18,13 @@ public class MainWindow extends JFrame {
     JLabel floorLabel;
     JPanel containerPanel;
     JMenuBar menuBar = new JMenuBar();
+    JMenu menuExit;
+    JMenu menuTools;
+    JMenu menuFloors;
+    JMenu menuLog;
+    JMenu menuSimulation;
+
+
     public MainWindow() {
         setTitle("Security-manager Simulator");
         setSize(800, 600);
@@ -27,25 +37,26 @@ public class MainWindow extends JFrame {
         menuBar.setBackground(Color.decode("#DAEBF7"));
         menuBar.setFont(new Font("Inter", Font.PLAIN, 18));
 
-        JMenu menuExit = new JMenu("Exit");
-        JMenu menuTools = new JMenu("Tools");
-        JMenu menuFloors = new JMenu("Floors");
-        JMenu menuLog = new JMenu("Log");
-        JMenu menuSimulation = new JMenu("Simulation");
+        menuExit = new JMenu("File");
+        menuTools = new JMenu("Tools");
+        menuFloors = new JMenu("Floors");
+        menuLog = new JMenu("Log");
+        menuSimulation = new JMenu("Simulation");
 
+        JMenuItem exitMenuItem = new JMenuItem("Exit");
+        menuExit.add(exitMenuItem);
+
+        JMenuItem showLog = new JMenuItem("Show log");
+        menuLog.add(showLog);
+        showLog.addActionListener(e -> ShowLog());
+
+        exitMenuItem.addActionListener(e -> CloseProgram());
 
         // Додавання підпунктів до Tools
         JMenuItem addFloorItem = new JMenuItem("Add new floor");
         menuTools.add(addFloorItem);
 
-        // Додавання підпунктів до Floors
-        JMenuItem floor1 = new JMenuItem("Floor 1");
-        JMenuItem floor2 = new JMenuItem("Floor 2");
-        JMenuItem floor3 = new JMenuItem("Floor 3");
-        menuFloors.add(floor1);
-        menuFloors.add(floor2);
-        menuFloors.add(floor3);
-
+        addFloorItem.addActionListener(e -> AddFloor());
         // Додавання підпунктів до Simulation
         JMenuItem startSimulation = new JMenuItem("Start");
         JMenuItem stopSimulation = new JMenuItem("Stop");
@@ -63,13 +74,16 @@ public class MainWindow extends JFrame {
         topPanel.setBackground(new Color(200, 220, 240));
 
         // Лейбл для підпису поверху
+
         floorLabel = new JLabel("  Floor 1", JLabel.LEFT);
-        floorLabel.setFont(new Font("Inter", Font.BOLD, 20));
+        floorLabel.setFont(new Font("Inter", Font.PLAIN, 20));
+        floorLabel.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
+
         topPanel.add(floorLabel, BorderLayout.NORTH);
 
         add(topPanel, BorderLayout.NORTH);
 
-        // Панель-контейнер для центрованого floorPanel
+
         containerPanel = new JPanel(new GridBagLayout());
         containerPanel.setBackground(Color.decode("#73A3C8"));
 
@@ -114,6 +128,7 @@ public class MainWindow extends JFrame {
 
         // Показати вікно
         setVisible(true);
+
     }
 
     // Метод для зміни розміру floorPanel в залежності від розміру вікна
@@ -146,22 +161,83 @@ public class MainWindow extends JFrame {
         return label;
     }
 
-
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MainWindow::new);
     }
 
 
-    public static void AddFloor(){
+    public void AddFloor(){
+        int confirm = JOptionPane.showConfirmDialog(null,
+                "Are you sure you want to add new floor?",
+                "New floor confirmation",
+                JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            manager.addFloor();
+            JMenu newFloor = new JMenu("Floor "+manager.getFloorCount());
+            menuFloors.add(newFloor);
+            JMenuItem newDeleteFloor = new JMenuItem("Delete Floor");
+            JMenuItem addNewRoom = new JMenuItem("Add new Room");
+            JMenuItem showFloor = new JMenuItem("Show Floor");
+
+            newDeleteFloor.addActionListener(e -> DeleteFloor(newFloor));
+            addNewRoom.addActionListener(e -> AddRoom(newFloor));
+            // showFloor.addActionListener(e -> showFloorAction(newFloorMenu));*/
+
+            newFloor.add(showFloor);
+            newFloor.add(addNewRoom);
+            newFloor.add(newDeleteFloor);
+        }
 
     }
 
-    public static void DeleteFloor(){
+    public void DeleteFloor(JMenu floor) {
+        int confirm = JOptionPane.showConfirmDialog(null,
+                "Are you sure you want to delete " + floor.getText() + "?",
+                "Delete Floor Confirmation",
+                JOptionPane.YES_NO_OPTION);
 
+        if (confirm == JOptionPane.YES_OPTION) {
+            try {
+                String floorText = floor.getText();
+                int floorNumber = Integer.parseInt(floorText.replace("Floor ", "").trim());
+
+                manager.deleteFloor(manager.getFloors().get(floorNumber-1).getId());
+                menuFloors.remove(floor);
+                updateFloorNames();
+                menuFloors.revalidate();
+                menuFloors.repaint();
+
+
+                JOptionPane.showMessageDialog(null,
+                        floor.getText() + " has been successfully deleted.",
+                        "Floor Deleted",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } catch (NumberFormatException e) {
+                // Обробка помилки, якщо номер поверху неможливо витягти
+                JOptionPane.showMessageDialog(null,
+                        "Failed to parse floor number: " + floor.getText(),
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
-    public static void AddRoom(){
+    //Переписуємо назви поверхів після видалення поверху
+    private void updateFloorNames() {
+        for (int i = 0; i < menuFloors.getMenuComponentCount(); i++) {
+            Component component = menuFloors.getMenuComponent(i);
 
+            if (component instanceof JMenu) {
+                JMenu floorMenu = (JMenu) component;
+                floorMenu.setText("Floor " + (i + 1));
+            }
+        }
+    }
+
+
+    public void AddRoom(JMenuItem floor){
+        SwingUtilities.invokeLater(() -> new AddRoom(this).setVisible(true));
     }
 
     public static void EditRoom(){
@@ -172,8 +248,8 @@ public class MainWindow extends JFrame {
 
     }
 
-    public static void ShowLog(){
-
+    public void ShowLog(){
+        SwingUtilities.invokeLater(() -> new LogWindow(this));
     }
 
     public static void StartSimulation(){
@@ -185,7 +261,14 @@ public class MainWindow extends JFrame {
     }
 
     public static void CloseProgram(){
+        int confirm = JOptionPane.showConfirmDialog(null,
+                "Are you sure you want to close an application?",
+                "Close Application",
+                JOptionPane.YES_NO_OPTION);
 
+        if (confirm == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }
 
     public static void GenerateFloorView(){

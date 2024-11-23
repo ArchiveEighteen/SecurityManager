@@ -8,55 +8,20 @@ import java.awt.*;
 
 public class LogWindow extends JFrame {
 
-    public LogWindow() {
+    public LogWindow(JFrame parent) {
         setTitle("Event Log");
         setSize(900, 600);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(parent);
         setLayout(new BorderLayout());
 
-        // Панель меню, яка буде такою ж, як у головному вікні
-        JMenuBar menuBar = new JMenuBar();
-        menuBar.setBackground(Color.decode("#DAEBF7"));
-        menuBar.setFont(new Font("Inter", Font.PLAIN, 18));
-
-        JMenu menuExit = new JMenu("Exit");
-        JMenu menuTools = new JMenu("Tools");
-        JMenu menuFloors = new JMenu("Floors");
-        JMenu menuLog = new JMenu("Log");
-        JMenu menuSimulation = new JMenu("Simulation");
-
-        // Додавання підпунктів до Tools
-        JMenuItem addFloorItem = new JMenuItem("Add new floor");
-        menuTools.add(addFloorItem);
-
-        // Додавання підпунктів до Floors
-        JMenuItem floor1 = new JMenuItem("Floor 1");
-        JMenuItem floor2 = new JMenuItem("Floor 2");
-        JMenuItem floor3 = new JMenuItem("Floor 3");
-        menuFloors.add(floor1);
-        menuFloors.add(floor2);
-        menuFloors.add(floor3);
-
-        // Додавання підпунктів до Simulation
-        JMenuItem startSimulation = new JMenuItem("Start");
-        JMenuItem stopSimulation = new JMenuItem("Stop");
-        menuSimulation.add(startSimulation);
-        menuSimulation.add(stopSimulation);
-
-        menuBar.add(menuExit);
-        menuBar.add(menuTools);
-        menuBar.add(menuFloors);
-        menuBar.add(menuLog);
-        menuBar.add(menuSimulation);
-        setJMenuBar(menuBar);
-
-        // Панель заголовку
         JPanel topPanel = new JPanel(new BorderLayout());
         topPanel.setBackground(new Color(200, 220, 240));
 
         JLabel logLabel = new JLabel("  Event Log", JLabel.LEFT);
-        logLabel.setFont(new Font("Inter", Font.BOLD, 20));
+        logLabel.setFont(new Font("Inter", Font.PLAIN, 20));
         topPanel.add(logLabel, BorderLayout.NORTH);
+        logLabel.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
 
         add(topPanel, BorderLayout.NORTH);
 
@@ -158,8 +123,9 @@ public class LogWindow extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args, JFrame parent) {
         // Запуск LogWindow
-        SwingUtilities.invokeLater(LogWindow::new);
+        LogWindow newLog = new LogWindow(parent);
+        newLog.setVisible(true);
     }
 }
