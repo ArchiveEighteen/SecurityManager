@@ -1,5 +1,6 @@
 package Windows;
 
+import manager.Floor;
 import manager.Room;
 import manager.SecurityManager;
 
@@ -89,7 +90,7 @@ public class MainWindow extends JFrame {
 
         // Ініціалізація floorPanel
         floorPanel = new JPanel();
-        floorPanel.setLayout(new GridLayout(4, 3, 5, 5)); // 4 рядки, 3 колонки з відступами
+      /*  floorPanel.setLayout(new GridLayout(4, 3, 5, 5)); // 4 рядки, 3 колонки з відступами
         floorPanel.setBackground(new Color(200, 220, 240));
 
         // Створення кімнат з індивідуальним відображенням температури
@@ -116,7 +117,7 @@ public class MainWindow extends JFrame {
 
         containerPanel.add(floorPanel);
         containerPanel.setBackground(new Color(200, 220, 240)); // Колір фону позаду floorPanel
-        add(containerPanel, BorderLayout.CENTER);
+        add(containerPanel, BorderLayout.CENTER);*/
 
         // Додати слухача для зміни розміру вікна
         addComponentListener(new ComponentAdapter() {
@@ -179,11 +180,13 @@ public class MainWindow extends JFrame {
             JMenuItem newDeleteFloor = new JMenuItem("Delete Floor");
             JMenuItem addNewRoom = new JMenuItem("Add new Room");
             JMenuItem showFloor = new JMenuItem("Show Floor");
+            JMenu roomMenu = new JMenu("Rooms");
 
             newDeleteFloor.addActionListener(e -> DeleteFloor(newFloor));
             addNewRoom.addActionListener(e -> AddRoom(newFloor));
-            // showFloor.addActionListener(e -> showFloorAction(newFloorMenu));*/
+            showFloor.addActionListener(e -> GenerateFloorView(newFloor));
 
+            newFloor.add(roomMenu);
             newFloor.add(showFloor);
             newFloor.add(addNewRoom);
             newFloor.add(newDeleteFloor);
@@ -208,7 +211,6 @@ public class MainWindow extends JFrame {
                 menuFloors.revalidate();
                 menuFloors.repaint();
 
-
                 JOptionPane.showMessageDialog(null,
                         floor.getText() + " has been successfully deleted.",
                         "Floor Deleted",
@@ -229,22 +231,84 @@ public class MainWindow extends JFrame {
             Component component = menuFloors.getMenuComponent(i);
 
             if (component instanceof JMenu) {
-                JMenu floorMenu = (JMenu) component;
-                floorMenu.setText("Floor " + (i + 1));
+                ((JMenu) component).setText("Floor " + (i + 1));
+            }
+        }
+    }
+
+    private void updateRoomNames(int floor) {
+         for (int i = 0; i < ((JMenu) menuFloors.getMenuComponent(floor-1)).getMenuComponentCount(); i++) {
+            Component component = ((JMenu) menuFloors.getMenuComponent(floor-1)).getMenuComponent(i);
+            if (component instanceof JMenu) {
+                ((JMenu) component).setText("Room " + (i + 1));
             }
         }
     }
 
 
     public void AddRoom(JMenuItem floor){
-        SwingUtilities.invokeLater(() -> new AddRoom(this).setVisible(true));
+        int f = Integer.parseInt(floor.getText().replace("Floor ", ""));
+        AddRoom newWindow = new AddRoom(this, f, null);
+        newWindow.setVisible(true);
     }
 
-    public static void EditRoom(){
+    public void getAddRoomResult(int floor, int windows, int doors, double area){
+        Room r = manager.getFloors().get(floor-1).addRoom(windows, doors, area);
+        Floor targetFloor = manager.getFloors().get(floor - 1);
+        int room = targetFloor.getRooms().size();
+        JMenu floorMenu = (JMenu) menuFloors.getMenuComponent(floor - 1);
+        JMenu floors = (JMenu) floorMenu.getMenuComponent(0);
+        JMenu roomMenu = new JMenu("Room " + (targetFloor.getRooms().size()));
+        JMenuItem editRoomItem = new JMenuItem("Edit Room");
+        JMenuItem deleteRoomItem = new JMenuItem("Delete Room");
 
+        floorLabel.setText(manager.getFloors().get(floor-1).getRooms().toString());
+        editRoomItem.addActionListener(e -> EditRoom(floor, r));
+        deleteRoomItem.addActionListener(e -> DeleteRoom(floor, room));
+
+        roomMenu.add(editRoomItem);
+        roomMenu.add(deleteRoomItem);
+
+        // Add the room menu directly to the floor menu
+        floors.add(roomMenu);
+
+        // Refresh the menu
+        floorMenu.revalidate();
+        floorMenu.repaint();
     }
 
-    public static void DeleteRoom(){
+    public void getEditRoomResults(int floor, UUID room, double area, int windows, int doors ){
+        for (Room r : manager.getFloors().get(floor - 1).getRooms()){
+            if(r.getId().equals(room)){
+                r.updateRoomParameters(windows, doors, area);
+
+            }
+        }
+    }
+
+    public void EditRoom(int floor, Room room){
+        AddRoom newWindow = new AddRoom(this, floor, room);
+        newWindow.setVisible(true);
+    }
+
+    public void DeleteRoom(int floor, int room){
+        int confirm = JOptionPane.showConfirmDialog(null,
+                "Are you sure you want to delete this room?",
+                "Delete Room Confirmation",
+                JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            JMenu h = (JMenu) menuFloors.getMenuComponent(floor-1);
+            System.out.println(manager.deleteRoom(manager.getFloors().get(floor-1).getId(), manager.getFloors().get(floor-1).getRooms().get(room-1).getId()));
+            ((JMenu) h.getMenuComponent(0)).remove(room-1);
+            updateRoomNames(floor);
+            menuFloors.revalidate();
+            menuFloors.repaint();
+            floorLabel.setText(manager.getFloors().get(floor-1).getRooms().toString());
+            if(manager.getFloors().get(floor-1).getRooms().size()==((JMenu) menuFloors.getMenuComponent(floor-1)).getMenuComponentCount()){
+            JOptionPane.showMessageDialog(null, "Room deleted successfully.");}
+        }
+
 
     }
 
@@ -271,8 +335,31 @@ public class MainWindow extends JFrame {
         }
     }
 
-    public static void GenerateFloorView(){
+    public void GenerateFloorView(JMenu floor){
+        /*   int f = Integer.parseInt(floor.getText().replace("Floor ", ""));
+        Floor view = manager.getFloors().get(f);
+        floorLabel.setText(floor.getText());
+        for (Room room : view.getRooms()) {
+            JPanel roomPanel = new JPanel(new BorderLayout());
+            roomPanel.setBackground(Color.decode("#DAEBF7"));
+            roomPanel.setBorder(BorderFactory.createDashedBorder(Color.GRAY));
 
+            JLabel temperatureLabel = createTemperatureLabel(temperature);
+
+            // Сенсори
+            JPanel sensorsPanel = createSensorsPanel(room);
+
+            // Додати компоненти до панелі кімнати
+            roomPanel.add(temperatureLabel, BorderLayout.NORTH);
+            roomPanel.add(sensorsPanel, BorderLayout.CENTER);
+
+            // Додати кімнату до floorPanel
+            floorPanel.add(roomPanel);
+        }
+
+        // Оновлюємо вікно
+        floorPanel.revalidate();
+        floorPanel.repaint();*/
     }
 
     public static void ChangeStateOfSensor(){
