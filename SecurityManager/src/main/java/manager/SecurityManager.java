@@ -27,6 +27,10 @@ public class SecurityManager {
         return floors.size();
     }
 
+    public void addRoom(Room room, int n){
+        floors.get(n).addRoom(room);
+    }
+
     public List<Floor> getFloors() {
         return floors;
     }
