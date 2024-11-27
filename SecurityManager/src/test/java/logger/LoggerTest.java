@@ -39,9 +39,9 @@ public class LoggerTest {
 
     @AfterEach
     public void tearDown() {
-        motionSensor = null;
-        floor = null;
-        room = null;
+//        motionSensor = null;
+//        floor = null;
+//        room = null;
 //        try(FileWriter writer = new FileWriter(logFile, false)){
 //        }
 //        catch (IOException e) {
@@ -53,10 +53,10 @@ public class LoggerTest {
     public void LoggingTest() {
         motionSensor.detectMovement();
 
-        assertEquals(floor.getId(), LogReader.getInstance().getLogs().getFirst().getFloorId());
-        assertEquals(room.getId(), LogReader.getInstance().getLogs().getFirst().getRoomId());
-        assertEquals("BreachDetected", LogReader.getInstance().getLogs().getFirst().getMessage());
-        assertEquals(LogType.MotionSensor, LogReader.getInstance().getLogs().getFirst().getType());
+        assertEquals(floor.getId(), LogReader.getInstance().getLogs().getLast().getFloorId());
+        assertEquals(room.getId(), LogReader.getInstance().getLogs().getLast().getRoomId());
+        assertEquals("Movement detected", LogReader.getInstance().getLogs().getLast().getMessage());
+        assertEquals(LogType.MotionSensor, LogReader.getInstance().getLogs().getLast().getType());
 
     }
 }

@@ -64,15 +64,16 @@ public class Room {
         }
 
         if(result != null) {
+            for(int i = 0; i < result.getTemperatureSensors(); i++){
+                sensorCreators.add(new TemperatureSensorCreator());
+            }
             for(int i = 0; i < result.getOpenSensors(); i++){
                 sensorCreators.add(new OpenSensorCreator());
             }
             for(int i = 0; i < result.getMotionSensors(); i++){
                 sensorCreators.add(new MotionSensorCreator());
             }
-            for(int i = 0; i < result.getTemperatureSensors(); i++){
-                sensorCreators.add(new TemperatureSensorCreator());
-            }
+
         }
 
 

@@ -1,0 +1,11 @@
+{
+  "TemperatureSensor": {
+    "areaPerSensor": 1000000
+  },
+  "MotionSensor": {
+    "areaPerSensor": 50
+  },
+  "OpenSensor": {
+    "doorsAndWindowsPerSensor": 1
+  }
+}
