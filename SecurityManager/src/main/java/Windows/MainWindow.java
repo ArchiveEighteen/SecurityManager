@@ -11,12 +11,14 @@ import manager.security.sensors.Sensor;
 import manager.security.sensors.SensorNotification;
 import manager.security.sensors.SensorType;
 import manager.security.sensors.TemperatureSensor;
+import serializers.jsonserializer.JsonSerializer;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -37,6 +39,8 @@ public class MainWindow extends JFrame {
     OpenSubscriber subscriber3 = new OpenSubscriber("Open", this);
     private Map<UUID, JPanel> sensorPanels = new HashMap<>();
 
+    private final String savefile = "savefile.json";
+
 
     public MainWindow() {
         setTitle("Security-manager Simulator");
@@ -45,6 +49,12 @@ public class MainWindow extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         getContentPane().setBackground(new Color(200, 220, 240)); // Колір фону головного вікна
+
+        try {
+            manager = JsonSerializer.deserialize(savefile, SecurityManager.class);
+        } catch (IOException e) {
+            // TODO exception handling
+        }
 
         // Панель меню
         menuBar.setBackground(Color.decode("#DAEBF7"));
@@ -463,13 +473,18 @@ public class MainWindow extends JFrame {
 
     }
 
-    public static void CloseProgram(){
+    public void CloseProgram(){
         int confirm = JOptionPane.showConfirmDialog(null,
                 "Are you sure you want to close an application?",
                 "Close Application",
                 JOptionPane.YES_NO_OPTION);
 
         if (confirm == JOptionPane.YES_OPTION) {
+            try {
+                JsonSerializer.serialize(manager, savefile);
+            } catch (IOException e){
+                // TODO exception handling
+            }
             System.exit(0);
         }
     }
