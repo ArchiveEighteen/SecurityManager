@@ -107,12 +107,14 @@ public class AddRoom extends JDialog {
                 int doors = (int) doorsSpinner.getValue();
                 double area = ((Number) areaSpinner.getValue()).doubleValue();
 
-                if(room == null){
-                parent.getAddRoomResult(floorId, windows, doors, area);}
-                else {
-                parent.getEditRoomResults(floorId, room.getId(), area, windows, doors);
+                if(doors > 0 && area > 0.0 && windows >=0) {
+                    if (room == null) {
+                        parent.getAddRoomResult(floorId, windows, doors, area);
+                    } else {
+                        parent.getEditRoomResults(floorId, room.getId(), area, windows, doors);
+                    }
+                    dispose();
                 }
-                dispose();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
