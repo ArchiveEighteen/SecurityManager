@@ -20,7 +20,7 @@ public class TemperatureSubscriber implements Flow.Subscriber<SensorNotification
 
     @Override
     public void onNext(SensorNotification notification) {
-            //mainW.setColorForMotion(notification);
+            mainW.setColorOnTemperature(notification);
     }
 
     @Override

@@ -274,25 +274,6 @@ public class MainWindow extends JFrame {
     }
 
 
-    private JLabel createTemperatureLabel(int temperature) {
-        JLabel label = new JLabel(temperature + " C");
-        label.setHorizontalAlignment(JLabel.LEFT);
-        label.setVerticalAlignment(JLabel.TOP);
-        label.setFont(new Font("Seven Segment", Font.PLAIN, 18));
-
-        if (temperature >= 23 && temperature <= 31) {
-            label.setForeground(Color.YELLOW);
-        } else if (temperature >= 17 && temperature <= 22) {
-            label.setForeground(Color.GREEN);
-        } else if (temperature >= 10 && temperature <= 16) {
-            label.setForeground(Color.BLUE);
-        } else {
-            label.setForeground(Color.BLACK); // Для всіх інших значень
-        }
-
-        return label;
-    }
-
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MainWindow::new);
     }
@@ -493,19 +474,4 @@ public class MainWindow extends JFrame {
         }
     }
 
-    public static void ChangeStateOfSensor(){
-
-    }
-
-    public static void OnMotionSensorTriggered(int a, int b, int c){
-        //не пам'ятаю що там воно приймає як параметри як дойду поміняю
-    }
-
-    public static void OnTemperaturSensorTriggered(int a, int b, int c){
-
-    }
-
-    public static void OnOpenSensorTriggered(int a, int b, int c){
-
-    }
 }
