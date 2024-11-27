@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9b746d1b-0ac3-41ed-b3fa-e6a2df53c05c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SecurityManager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SecurityManager.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/Windows/AddRoom.form" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/Windows/AddRoom.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/Windows/AddRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/Windows/AddRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/Windows/LogWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/Windows/LogWindow.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/Windows/LogWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/Windows/LogWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/Windows/MainWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/Windows/MainWindow.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/Windows/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/Windows/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/logger/LogReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/logger/LogReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/logger/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/logger/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/Floor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/Floor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/SecurityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/SecurityManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensorcreators/MotionSensorCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensorcreators/MotionSensorCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensorcreators/OpenSensorCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensorcreators/OpenSensorCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensorcreators/SensorCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensorcreators/SensorCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensorcreators/TemperatureSensorCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensorcreators/TemperatureSensorCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensors/MotionSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensors/MotionSensor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensors/OpenSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensors/OpenSensor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensors/Sensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensors/Sensor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensors/SensorNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensors/SensorNotification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensors/TemperatureSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/manager/security/sensors/TemperatureSensor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/serializers/jsonserializer/JsonSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/serializers/jsonserializer/JsonSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/serializers/jsonserializer/adapters/SecurityManagerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/serializers/jsonserializer/adapters/SecurityManagerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/serializers/serializationclasses/SerializationFloor.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/serializers/serializationclasses/SerializationFloor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/main/java/serializers/serializationclasses/SerializationRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/main/java/serializers/serializationclasses/SerializationRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/test/java/jsonserializer/JsonSerializerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/test/java/jsonserializer/JsonSerializerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SecurityManager/src/test/java/logger/loggertest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecurityManager/src/test/java/logger/loggertest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2p7mMRzDok8iCsJDn1plApMA7fe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.loggertest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "task/logging-and-ui-integration",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Oladik/IdeaProjects/SecurityManager/SecurityManager",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9b746d1b-0ac3-41ed-b3fa-e6a2df53c05c" name="Changes" comment="" />
+      <created>1732125439809</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732125439809</updated>
+      <workItem from="1732125440848" duration="3534000" />
+      <workItem from="1732654255574" duration="1917000" />
+      <workItem from="1732686236336" duration="266000" />
+      <workItem from="1732686534078" duration="137000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
