@@ -123,7 +123,11 @@ public class MainWindow extends JFrame {
                 manager = JsonSerializer.deserialize(savefile, SecurityManager.class);
                 initializeUi();
             } catch (IOException e) {
-                // TODO exception handling
+                JOptionPane.showMessageDialog(
+                null,
+                        "Deserialization is not possible",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -553,7 +557,13 @@ public class MainWindow extends JFrame {
             try {
                 JsonSerializer.serialize(manager, savefile);
             } catch (IOException e){
-                // TODO exception handling
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Failed to serialize",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                );
+
             }
             System.exit(0);
         }
