@@ -11,12 +11,17 @@ import manager.security.sensors.Sensor;
 import manager.security.sensors.SensorNotification;
 import manager.security.sensors.SensorType;
 import manager.security.sensors.TemperatureSensor;
+import serializers.jsonserializer.JsonSerializer;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.math.RoundingMode;
+import java.text.NumberFormat;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -36,6 +41,8 @@ public class MainWindow extends JFrame {
     MotionSubscriber subscriber2 = new MotionSubscriber("Motion", this);
     OpenSubscriber subscriber3 = new OpenSubscriber("Open", this);
     private Map<UUID, JPanel> sensorPanels = new HashMap<>();
+
+    private final String savefile = "savefile.json";
 
 
     public MainWindow() {
@@ -114,6 +121,19 @@ public class MainWindow extends JFrame {
 
         setVisible(true);
 
+        var file = new File(savefile);
+        if(file.exists() && file.length() > 5) {
+            try {
+                manager = JsonSerializer.deserialize(savefile, SecurityManager.class);
+                initializeUi();
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(
+                null,
+                        "Deserialization is not possible",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
     public void setColorOnTemperature(SensorNotification sn){
@@ -123,8 +143,11 @@ public class MainWindow extends JFrame {
                         TemperatureSensor t = (TemperatureSensor) room.getSensors().getFirst();
                         JPanel sensorView = sensorPanels.get(t.getId());
                         if (sensorView != null) {
+                            NumberFormat nf = NumberFormat.getNumberInstance();
+                            nf.setMaximumFractionDigits(2);
+                            nf.setRoundingMode(RoundingMode.DOWN);
                             JLabel temperatureLabel = (JLabel) sensorView.getComponent(0); // Припускаємо, що перший компонент — це етикетка температури
-                            temperatureLabel.setText("Temperature: " + t.getCurrentTemperature() + "°C");
+                            temperatureLabel.setText("" + nf.format(t.getCurrentTemperature()) + "°C");
                             Color fontColor = getColorBasedOnTemperature(t.getCurrentTemperature());
                             temperatureLabel.setForeground(fontColor);
                         }
@@ -150,11 +173,11 @@ public class MainWindow extends JFrame {
         }}
 
     public void setColorForOpen(SensorNotification sn){
-        sensorPanels.get(sn.getSensorId()).setBackground(true? new Color(181, 13, 21) : new Color(13, 12, 181));
+        sensorPanels.get(sn.getSensorId()).setBackground(sn.getStatus()? new Color(181, 13, 21) : new Color(13, 12, 181));
     }
 
     public void setColorForMotion(SensorNotification sn){
-        sensorPanels.get(sn.getSensorId()).setBackground(true? new Color(12, 164, 181) : new Color(181, 13, 108));
+        sensorPanels.get(sn.getSensorId()).setBackground(sn.getStatus()? new Color(12, 164, 181) : new Color(181, 13, 108));
     }
 
     public void GenerateFloorView(JMenu floor){
@@ -281,14 +304,14 @@ public class MainWindow extends JFrame {
     }
 
 
-    public void AddFloor(){
+    public void AddFloor() {
         int confirm = JOptionPane.showConfirmDialog(null,
                 "Are you sure you want to add new floor?",
                 "New floor confirmation",
                 JOptionPane.YES_NO_OPTION);
         if (confirm == JOptionPane.YES_OPTION) {
             manager.addFloor();
-            JMenu newFloor = new JMenu("Floor "+manager.getFloorCount());
+            JMenu newFloor = new JMenu("Floor " + manager.getFloorCount());
             menuFloors.add(newFloor);
             JMenuItem newDeleteFloor = new JMenuItem("Delete Floor");
             JMenuItem addNewRoom = new JMenuItem("Add new Room");
@@ -304,7 +327,25 @@ public class MainWindow extends JFrame {
             newFloor.add(addNewRoom);
             newFloor.add(newDeleteFloor);
         }
+    }
 
+    public JMenu AddFinalFloor(int currentFloor) {
+        JMenu newFloor = new JMenu("Floor " + currentFloor);
+        menuFloors.add(newFloor);
+        JMenuItem newDeleteFloor = new JMenuItem("Delete Floor");
+        JMenuItem addNewRoom = new JMenuItem("Add new Room");
+        JMenuItem showFloor = new JMenuItem("Show Floor");
+        JMenu roomMenu = new JMenu("Rooms");
+
+        newDeleteFloor.addActionListener(e -> DeleteFloor(newFloor));
+        addNewRoom.addActionListener(e -> AddRoom(newFloor));
+        showFloor.addActionListener(e -> GenerateFloorView(newFloor));
+
+        newFloor.add(roomMenu);
+        newFloor.add(showFloor);
+        newFloor.add(addNewRoom);
+        newFloor.add(newDeleteFloor);
+        return newFloor;
     }
 
     public void DeleteFloor(JMenu floor) {
@@ -374,7 +415,7 @@ public class MainWindow extends JFrame {
                     case MotionSensor: sensorPanels.get(s.getId()).setBackground(new Color(181, 13, 108)); s.subscribe(subscriber2); break;
                     case TemperatureSensor:
                         TemperatureSensor t = (TemperatureSensor) s;
-                        sensorPanels.get(s.getId()).add(new JLabel(t.getCurrentTemperature()+"C"));
+                        sensorPanels.get(s.getId()).add(new JLabel(t.getCurrentTemperature()+"°C"));
                         Color fontColor = getColorBasedOnTemperature(t.getCurrentTemperature());
                         sensorPanels.get(s.getId()).setForeground(fontColor)
                         ;s.subscribe(subscriber1); break;}
@@ -399,6 +440,54 @@ public class MainWindow extends JFrame {
 
         floorMenu.revalidate();
         floorMenu.repaint();
+    }
+
+    public void getFinalRoomResult(int floor, int i){
+        List<Sensor> rSensors = manager.getFloors().get(floor).getRooms().get(i).getSensors();
+        for (Sensor s : rSensors){
+            if(sensorPanels.putIfAbsent(s.getId(), new JPanel()) == null){
+                switch(s.getType()){
+                    case OpenSensor: sensorPanels.get(s.getId()).setBackground(new Color(13, 12, 181)); s.subscribe(subscriber3); break;
+                    case MotionSensor: sensorPanels.get(s.getId()).setBackground(new Color(181, 13, 108)); s.subscribe(subscriber2); break;
+                    case TemperatureSensor:
+                        TemperatureSensor t = (TemperatureSensor) s;
+                        sensorPanels.get(s.getId()).add(new Label(t.getCurrentTemperature()+"C"));
+                        Color fontColor = getColorBasedOnTemperature(t.getCurrentTemperature());
+                        sensorPanels.get(s.getId()).setForeground(fontColor)
+                        ;s.subscribe(subscriber1); break;}
+            }
+        }
+        Floor targetFloor = manager.getFloors().get(floor);
+        JMenu floorMenu = (JMenu) menuFloors.getMenuComponent(floor);
+        JMenu floors = (JMenu) floorMenu.getMenuComponent(0);
+        JMenu roomMenu = new JMenu("Room " + (targetFloor.getRooms().size()));
+        JMenuItem editRoomItem = new JMenuItem("Edit Room");
+        JMenuItem deleteRoomItem = new JMenuItem("Delete Room");
+
+        // floorLabel.setText(manager.getFloors().get(floor-1).getRooms().toString());
+        editRoomItem.addActionListener(e -> EditRoom(floor, manager.getFloors().get(floor).getRooms().get(i)));
+        deleteRoomItem.addActionListener(e -> DeleteRoom(floor, i));
+
+        roomMenu.add(editRoomItem);
+        roomMenu.add(deleteRoomItem);
+
+        floors.add(roomMenu);
+
+        floorMenu.revalidate();
+        floorMenu.repaint();
+    }
+
+    private void initializeUi(){
+        var floors = manager.getFloors();
+        for(int i = 0;  i < floors.size(); i++){
+            var FloorMenu = AddFinalFloor(i + 1);
+
+            var rooms = floors.get(i).getRooms();
+            for (int j = 0; j < rooms.size(); ++j) {
+                var currentRoom = rooms.get(j);
+                getFinalRoomResult(i, j);
+            }
+        }
     }
 
     public void getEditRoomResults(int floor, UUID room, double area, int windows, int doors ){
@@ -465,13 +554,24 @@ public class MainWindow extends JFrame {
         manager.stopSimulation();
     }
 
-    public static void CloseProgram(){
+    public void CloseProgram(){
         int confirm = JOptionPane.showConfirmDialog(null,
                 "Are you sure you want to close an application?",
                 "Close Application",
                 JOptionPane.YES_NO_OPTION);
 
         if (confirm == JOptionPane.YES_OPTION) {
+            try {
+                JsonSerializer.serialize(manager, savefile);
+            } catch (IOException e){
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Failed to serialize",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                );
+
+            }
             System.exit(0);
         }
     }
