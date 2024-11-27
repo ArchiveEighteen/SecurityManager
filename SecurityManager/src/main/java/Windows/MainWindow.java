@@ -1,17 +1,24 @@
 package Windows;
 
 
+import Subscribers.MotionSubscriber;
+import Subscribers.OpenSubscriber;
+import Subscribers.TemperatureSubscriber;
 import manager.Floor;
 import manager.Room;
 import manager.SecurityManager;
+import manager.security.sensors.Sensor;
+import manager.security.sensors.SensorNotification;
+import manager.security.sensors.SensorType;
+import manager.security.sensors.TemperatureSensor;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
+import java.util.List;
 
 public class MainWindow extends JFrame {
     SecurityManager manager = new SecurityManager();
@@ -25,6 +32,10 @@ public class MainWindow extends JFrame {
     JMenu menuFloors;
     JMenu menuLog;
     JMenu menuSimulation;
+    TemperatureSubscriber subscriber1 = new TemperatureSubscriber("Temparature", this);
+    MotionSubscriber subscriber2 = new MotionSubscriber("Motion", this);
+    OpenSubscriber subscriber3 = new OpenSubscriber("Open", this);
+    private Map<UUID, JPanel> sensorPanels = new HashMap<>();
 
 
     public MainWindow() {
@@ -75,9 +86,8 @@ public class MainWindow extends JFrame {
         topPanel = new JPanel(new BorderLayout());
         topPanel.setBackground(new Color(200, 220, 240));
 
-        // Лейбл для підпису поверху
 
-        floorLabel = new JLabel("  Floor 1", JLabel.LEFT);
+        floorLabel = new JLabel("", JLabel.LEFT);
         floorLabel.setFont(new Font("Inter", Font.PLAIN, 20));
         floorLabel.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
 
@@ -91,35 +101,6 @@ public class MainWindow extends JFrame {
 
         // Ініціалізація floorPanel
         floorPanel = new JPanel();
-      /*  floorPanel.setLayout(new GridLayout(4, 3, 5, 5)); // 4 рядки, 3 колонки з відступами
-        floorPanel.setBackground(new Color(200, 220, 240));
-
-        // Створення кімнат з індивідуальним відображенням температури
-        Random random = new Random();
-        for (int i = 0; i < 12; i++) {
-            JPanel roomPanel = new JPanel(new BorderLayout());
-            roomPanel.setBackground(Color.decode("#DAEBF7"));
-            roomPanel.setBorder(BorderFactory.createDashedBorder(Color.GRAY));
-
-            // Випадкова температура між 10 і 30 градусами
-            int temperature = 10 + random.nextInt(21);
-            JLabel temperatureLabel = createTemperatureLabel(temperature);
-
-            // Додати лейбл температури в центр панелі кімнати
-            roomPanel.add(temperatureLabel, BorderLayout.CENTER);
-            floorPanel.add(roomPanel);
-        }
-
-        // Встановити початковий розмір floorPanel
-        floorPanel.setPreferredSize(new Dimension(
-                (int) (getWidth() * 0.8),
-                (int) (getHeight() * 0.7)
-        ));
-
-        containerPanel.add(floorPanel);
-        containerPanel.setBackground(new Color(200, 220, 240)); // Колір фону позаду floorPanel
-        add(containerPanel, BorderLayout.CENTER);*/
-
 
         // Додати слухача для зміни розміру вікна
         addComponentListener(new ComponentAdapter() {
@@ -129,21 +110,169 @@ public class MainWindow extends JFrame {
             }
         });
 
-        // Показати вікно
         setVisible(true);
 
     }
 
-    // Метод для зміни розміру floorPanel в залежності від розміру вікна
+    public void setColorOnTemperature(SensorNotification sn){
+        for (Floor floor : manager.getFloors()) {
+            for (Room room : floor.getRooms()) {
+                    if (room.getSensors().getFirst().getId() == sn.getSensorId() && room.getSensors().getFirst().getType() == SensorType.TemperatureSensor) {
+                        TemperatureSensor t = (TemperatureSensor) room.getSensors().getFirst();
+                        JPanel sensorView = sensorPanels.get(t.getId());
+                        if (sensorView != null) {
+                            JLabel temperatureLabel = (JLabel) sensorView.getComponent(0); // Припускаємо, що перший компонент — це етикетка температури
+                            temperatureLabel.setText("Temperature: " + t.getCurrentTemperature() + "°C");
+                            Color fontColor = getColorBasedOnTemperature(t.getCurrentTemperature());
+                            temperatureLabel.setForeground(fontColor);
+                        }
+                        return;
+                    }
+                }
+            }
+        }
+
+    private Color getColorBasedOnTemperature(double temperature) {
+        if (temperature < 0) {
+            return new Color(0, 0, 255);
+        } else if (temperature >= 0 && temperature < 10) {
+            return new Color(0, 0, 139);
+        } else if (temperature >= 10 && temperature < 20) {
+            return new Color(34, 139, 34);
+        } else if (temperature >= 20 && temperature < 30) {
+            return new Color(255, 215, 0);
+        } else if (temperature >= 30 && temperature < 40) {
+            return new Color(255, 140, 0);
+        } else {
+            return new Color(255, 0, 0);
+        }}
+
+    public void setColorForOpen(SensorNotification sn){
+        sensorPanels.get(sn.getSensorId()).setBackground(true? new Color(181, 13, 21) : new Color(13, 12, 181));
+    }
+
+    public void setColorForMotion(SensorNotification sn){
+        sensorPanels.get(sn.getSensorId()).setBackground(true? new Color(12, 164, 181) : new Color(181, 13, 108));
+    }
+
+    public void GenerateFloorView(JMenu floor){
+        floorPanel.removeAll();
+        int floorIndex = Integer.parseInt(floor.getText().replace("Floor ", "")) - 1;
+        Floor targetFloor = manager.getFloors().get(floorIndex);
+        floorLabel.setText("Floor " + (floorIndex + 1));
+        floorLabel.setHorizontalAlignment(SwingConstants.LEFT);
+        floorLabel.setBorder(BorderFactory.createEmptyBorder(15, 10, 0, 0));
+
+        // Налаштування розмітки для панелі поверху
+        floorPanel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.fill = GridBagConstraints.BOTH;
+
+        // Отримуємо кімнати
+        List<Room> rooms = targetFloor.getRooms();
+        int maxWidth = getMaxLabelWidth(rooms);
+        if (rooms.isEmpty()) {
+            JLabel emptyLabel = new JLabel("No rooms available");
+            emptyLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            floorPanel.add(emptyLabel);
+        } else {
+            int columns = (int) Math.ceil(Math.sqrt(rooms.size()));
+
+            // Додаємо кімнати
+            for (int i = 0; i < rooms.size(); i++) {
+                Room room = rooms.get(i);
+
+                // Створюємо панель для кімнати
+                JPanel roomPanel = createRoomPanel(room, i + 1, maxWidth);
+
+                // Розміщуємо кімнату в сітці
+                gbc.gridx = i % columns; // Номер колонки
+                gbc.gridy = i / columns; // Номер рядка
+                floorPanel.add(roomPanel, gbc);
+            }
+        }
+
+        // Оновлюємо floorPanel
+        floorPanel.revalidate();
+        floorPanel.repaint();
+        floorPanel.setBackground(new Color(200, 220, 240));
+        containerPanel.add(floorPanel);
+        containerPanel.setBackground(new Color(200, 220, 240)); // Колір фону позаду floorPanel
+        add(containerPanel, BorderLayout.CENTER);
+    }
+
+    private JPanel createRoomPanel(Room room, int roomNumber, int fixedWidth) {
+        int sensorCount = room.getSensors().size(); // Кількість сенсорів у кімнаті
+        int baseHeight = 50; // Базова висота кімнати
+        int sensorHeightIncrement = 30; // Додаткова висота за кожен сенсор
+
+        int height = baseHeight + (sensorCount / 2 * sensorHeightIncrement);
+
+        JPanel roomPanel = new JPanel();
+        roomPanel.setLayout(new BorderLayout());
+        roomPanel.setBorder(BorderFactory.createTitledBorder(
+                BorderFactory.createLineBorder(Color.GRAY),
+                "Room " + roomNumber, // Заголовок кімнати
+                TitledBorder.LEFT, TitledBorder.TOP,
+                new Font("Arial", Font.BOLD, 12) // Шрифт заголовка
+        ));
+        roomPanel.setBackground(Color.decode("#DAEBF7"));
+        roomPanel.setPreferredSize(new Dimension(fixedWidth, height));
+
+        JPanel temper = new JPanel();
+        temper.setBackground(Color.decode("#DAEBF7"));
+        temper.add(sensorPanels.get(room.getSensors().getFirst().getId()));
+
+        // Панель для сенсорів
+        JPanel sensorPanel = new JPanel(new GridLayout(0, 2, 5, 5)); // Дві колонки
+        sensorPanel.setBackground(Color.WHITE);
+
+        int sensorSize = fixedWidth / 2 - 10;
+        // Додаємо сенсори до кімнати
+        for (Sensor sensor : room.getSensors()) {
+            JPanel sensorView = sensorPanels.get(sensor.getId());
+            if (sensorView != null && sensor.getType() != SensorType.TemperatureSensor) {
+                sensorView.setPreferredSize(new Dimension(sensorSize, sensorSize));
+                sensorPanel.add(sensorView);
+            }
+        }
+
+        // Додаємо панель сенсорів до кімнати
+        JPanel allSensorsPanel = new JPanel();
+        allSensorsPanel.setLayout(new BorderLayout());
+        allSensorsPanel.add(temper, BorderLayout.NORTH);
+        allSensorsPanel.add(sensorPanel, BorderLayout.CENTER);
+
+        roomPanel.add(allSensorsPanel, BorderLayout.CENTER);
+        return roomPanel;
+    }
+
+
+    private int getMaxLabelWidth(List<Room> rooms) {
+        Font font = new Font("Arial", Font.BOLD, 12);
+        FontMetrics metrics = getFontMetrics(font);
+
+        int maxWidth = 0;
+        for (int i = 0; i < rooms.size(); i++) {
+            String label = "Room " + (i + 1);
+            int labelWidth = metrics.stringWidth(label);
+            maxWidth = Math.max(maxWidth, labelWidth);
+        }
+        return maxWidth + 25;
+    }
+
+
     private void adjustFloorPanelSize() {
         if (floorPanel != null) {
             floorPanel.setPreferredSize(new Dimension(
                     (int) (getWidth() * 0.8),
                     (int) (getHeight() * 0.7)
             ));
-            floorPanel.revalidate(); // Оновлення компонента
+            floorPanel.revalidate();
         }
     }
+
 
     private JLabel createTemperatureLabel(int temperature) {
         JLabel label = new JLabel(temperature + " C");
@@ -174,7 +303,6 @@ public class MainWindow extends JFrame {
                 "Are you sure you want to add new floor?",
                 "New floor confirmation",
                 JOptionPane.YES_NO_OPTION);
-
         if (confirm == JOptionPane.YES_OPTION) {
             manager.addFloor();
             JMenu newFloor = new JMenu("Floor "+manager.getFloorCount());
@@ -255,6 +383,20 @@ public class MainWindow extends JFrame {
 
     public void getAddRoomResult(int floor, int windows, int doors, double area){
         Room r = manager.getFloors().get(floor-1).addRoom(windows, doors, area);
+        List<Sensor> rSensors = r.getSensors();
+        for (Sensor s : rSensors){
+            if(sensorPanels.putIfAbsent(s.getId(), new JPanel()) == null){
+                switch(s.getType()){
+                    case OpenSensor: sensorPanels.get(s.getId()).setBackground(new Color(13, 12, 181)); s.subscribe(subscriber3); break;
+                    case MotionSensor: sensorPanels.get(s.getId()).setBackground(new Color(181, 13, 108)); s.subscribe(subscriber2); break;
+                    case TemperatureSensor:
+                        TemperatureSensor t = (TemperatureSensor) s;
+                        sensorPanels.get(s.getId()).add(new Label(t.getCurrentTemperature()+"C"));
+                        Color fontColor = getColorBasedOnTemperature(t.getCurrentTemperature());
+                        sensorPanels.get(s.getId()).setForeground(fontColor)
+                        ;s.subscribe(subscriber1); break;}
+            }
+        }
         Floor targetFloor = manager.getFloors().get(floor - 1);
         int room = targetFloor.getRooms().size();
         JMenu floorMenu = (JMenu) menuFloors.getMenuComponent(floor - 1);
@@ -263,17 +405,15 @@ public class MainWindow extends JFrame {
         JMenuItem editRoomItem = new JMenuItem("Edit Room");
         JMenuItem deleteRoomItem = new JMenuItem("Delete Room");
 
-        floorLabel.setText(manager.getFloors().get(floor-1).getRooms().toString());
+       // floorLabel.setText(manager.getFloors().get(floor-1).getRooms().toString());
         editRoomItem.addActionListener(e -> EditRoom(floor, r));
         deleteRoomItem.addActionListener(e -> DeleteRoom(floor, room));
 
         roomMenu.add(editRoomItem);
         roomMenu.add(deleteRoomItem);
 
-        // Add the room menu directly to the floor menu
         floors.add(roomMenu);
 
-        // Refresh the menu
         floorMenu.revalidate();
         floorMenu.repaint();
     }
@@ -282,10 +422,25 @@ public class MainWindow extends JFrame {
         for (Room r : manager.getFloors().get(floor - 1).getRooms()){
             if(r.getId().equals(room)){
                 r.updateRoomParameters(windows, doors, area);
+                List<Sensor> rSensors = r.getSensors();
+                for (Sensor s : rSensors){
+                    if(sensorPanels.putIfAbsent(s.getId(), new JPanel()) == null){
+                        switch(s.getType()){
+                            case OpenSensor: sensorPanels.get(s.getId()).setBackground(new Color(13, 12, 181)); s.subscribe(subscriber3); break;
+                            case MotionSensor: sensorPanels.get(s.getId()).setBackground(new Color(181, 13, 108)); s.subscribe(subscriber2); break;
+                            case TemperatureSensor:
+                                TemperatureSensor t = (TemperatureSensor) s;
+                                sensorPanels.get(s.getId()).add(new Label(t.getCurrentTemperature()+"C"));
+                                Color fontColor = getColorBasedOnTemperature(t.getCurrentTemperature());
+                                sensorPanels.get(s.getId()).setForeground(fontColor);
+                                s.subscribe(subscriber1); break;}
 
+                    }
+                }
             }
         }
     }
+
 
     public void EditRoom(int floor, Room room){
         AddRoom newWindow = new AddRoom(this, floor, room);
@@ -300,12 +455,14 @@ public class MainWindow extends JFrame {
 
         if (confirm == JOptionPane.YES_OPTION) {
             JMenu h = (JMenu) menuFloors.getMenuComponent(floor-1);
+            UUID toRemove = manager.getFloors().get(floor-1).getRooms().get(room-1).getId();
             System.out.println(manager.deleteRoom(manager.getFloors().get(floor-1).getId(), manager.getFloors().get(floor-1).getRooms().get(room-1).getId()));
             ((JMenu) h.getMenuComponent(0)).remove(room-1);
+            sensorPanels.remove(toRemove);
             updateRoomNames(floor);
             menuFloors.revalidate();
             menuFloors.repaint();
-            floorLabel.setText(manager.getFloors().get(floor-1).getRooms().toString());
+            // floorLabel.setText(manager.getFloors().get(floor-1).getRooms().toString());
             if(manager.getFloors().get(floor-1).getRooms().size()==((JMenu) menuFloors.getMenuComponent(floor-1)).getMenuComponentCount()){
             JOptionPane.showMessageDialog(null, "Room deleted successfully.");}
         }
@@ -334,33 +491,6 @@ public class MainWindow extends JFrame {
         if (confirm == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
-    }
-
-    public void GenerateFloorView(JMenu floor){
-        /*   int f = Integer.parseInt(floor.getText().replace("Floor ", ""));
-        Floor view = manager.getFloors().get(f);
-        floorLabel.setText(floor.getText());
-        for (Room room : view.getRooms()) {
-            JPanel roomPanel = new JPanel(new BorderLayout());
-            roomPanel.setBackground(Color.decode("#DAEBF7"));
-            roomPanel.setBorder(BorderFactory.createDashedBorder(Color.GRAY));
-
-            JLabel temperatureLabel = createTemperatureLabel(temperature);
-
-            // Сенсори
-            JPanel sensorsPanel = createSensorsPanel(room);
-
-            // Додати компоненти до панелі кімнати
-            roomPanel.add(temperatureLabel, BorderLayout.NORTH);
-            roomPanel.add(sensorsPanel, BorderLayout.CENTER);
-
-            // Додати кімнату до floorPanel
-            floorPanel.add(roomPanel);
-        }
-
-        // Оновлюємо вікно
-        floorPanel.revalidate();
-        floorPanel.repaint();*/
     }
 
     public static void ChangeStateOfSensor(){
