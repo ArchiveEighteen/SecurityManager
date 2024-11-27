@@ -1,5 +1,8 @@
 package manager;
 
+import logger.LogType;
+import logger.Logger;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,6 +15,7 @@ public class Floor {
     public Floor() {
         id = UUID.randomUUID();
         rooms = new ArrayList<>();
+        Logger.getInstance().log(this.id, this.id, "Floor was created", LogType.System);
     }
 
     public Room addRoom(int windowsAmount, int doorsAmount, double area){

@@ -1,5 +1,8 @@
 package manager.security.sensors;
 
+import logger.LogType;
+import logger.Logger;
+
 import java.util.UUID;
 
 public class TemperatureSensor extends Sensor {
@@ -10,17 +13,21 @@ public class TemperatureSensor extends Sensor {
     public void changeTemperature(double temperature) {
         if (currentTemperature > maxTemperature && temperature < maxTemperature) {
             reset();
+            Logger.getInstance().log(this.floorId, roomId, "Temperature is normal", LogType.TemperatureSensor);
             // TODO: Log normalization
         } else if (currentTemperature < minTemperature && temperature > minTemperature) {
             reset();
+            Logger.getInstance().log(this.floorId, roomId, "Temperature is normal", LogType.TemperatureSensor);
             // TODO: Log normalization
         }
         currentTemperature = temperature;
         if (currentTemperature > maxTemperature) {
             trigger();
+            Logger.getInstance().log(this.floorId, roomId, "Temperature is higher than normal", LogType.TemperatureSensor);
             // TODO: Decrease temperature and log
         } else if (currentTemperature < minTemperature) {
             trigger();
+            Logger.getInstance().log(this.floorId, roomId, "Temperature is lower than normal", LogType.TemperatureSensor);
             // TODO: Increase temperature and log
         }
     }
