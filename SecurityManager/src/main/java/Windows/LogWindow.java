@@ -1,15 +1,10 @@
 package Windows;
 
-import logger.Log;
-import logger.LogReader;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.List;
-import java.time.format.DateTimeFormatter;
 
 public class LogWindow extends JFrame {
 
@@ -35,7 +30,7 @@ public class LogWindow extends JFrame {
         filterPanel.setBackground(new Color(200, 220, 240));
 
         JLabel filterLabel = new JLabel("Filter by");
-        JComboBox<String> filterComboBox = new JComboBox<>(new String[]{"Date", "Floor", "Room", "Event", "Sensor"});
+        JComboBox<String> filterComboBox = new JComboBox<>(new String[]{"Date", "Floor", "Room", "Event", "System Reaction", "Sensor"});
         filterPanel.add(filterLabel);
         filterPanel.add(filterComboBox);
 
@@ -53,6 +48,7 @@ public class LogWindow extends JFrame {
         tableModel.addColumn("Floor");
         tableModel.addColumn("Room");
         tableModel.addColumn("Event");
+        tableModel.addColumn("System Reaction");
         tableModel.addColumn("Sensor");
 
         // JTable для відображення логів
@@ -92,7 +88,8 @@ public class LogWindow extends JFrame {
         logTable.getColumnModel().getColumn(1).setPreferredWidth(50);  // Floor
         logTable.getColumnModel().getColumn(2).setPreferredWidth(50);  // Room
         logTable.getColumnModel().getColumn(3).setPreferredWidth(150); // Event
-        logTable.getColumnModel().getColumn(4).setPreferredWidth(100); // Sensor
+        logTable.getColumnModel().getColumn(4).setPreferredWidth(200); // System Reaction
+        logTable.getColumnModel().getColumn(5).setPreferredWidth(100); // Sensor
 
         // Встановлення кольору фону таблиці
         logTable.setBackground(Color.decode("#DAEBF7"));
@@ -121,28 +118,9 @@ public class LogWindow extends JFrame {
 
         // Додавання панелі таблиці до вікна
         add(tablePanel, BorderLayout.CENTER);
-        // Завантаження логів
-        loadLogsIntoTable(tableModel);
-
 
         // Показати вікно
         setVisible(true);
-    }
-
-    private void loadLogsIntoTable(DefaultTableModel tableModel) {
-        LogReader logReader = LogReader.getInstance();
-        List<Log> logs = logReader.getLogs();
-
-        for (Log log : logs) {
-            tableModel.addRow(new Object[]{
-                    log.getTime().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss")),
-                    log.getFloorId(),
-                    log.getRoomId(),
-                    log.getMessage(),
-                    log.getType(),
-
-            });
-        }
     }
 
     public static void main(String[] args, JFrame parent) {
