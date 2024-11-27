@@ -17,6 +17,8 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.math.RoundingMode;
+import java.text.NumberFormat;
 import java.util.*;
 import java.util.List;
 
@@ -123,8 +125,11 @@ public class MainWindow extends JFrame {
                         TemperatureSensor t = (TemperatureSensor) room.getSensors().getFirst();
                         JPanel sensorView = sensorPanels.get(t.getId());
                         if (sensorView != null) {
+                            NumberFormat nf = NumberFormat.getNumberInstance();
+                            nf.setMaximumFractionDigits(2);
+                            nf.setRoundingMode(RoundingMode.DOWN);
                             JLabel temperatureLabel = (JLabel) sensorView.getComponent(0); // Припускаємо, що перший компонент — це етикетка температури
-                            temperatureLabel.setText("Temperature: " + t.getCurrentTemperature() + "°C");
+                            temperatureLabel.setText("" + nf.format(t.getCurrentTemperature()) + "°C");
                             Color fontColor = getColorBasedOnTemperature(t.getCurrentTemperature());
                             temperatureLabel.setForeground(fontColor);
                         }
@@ -150,11 +155,11 @@ public class MainWindow extends JFrame {
         }}
 
     public void setColorForOpen(SensorNotification sn){
-        sensorPanels.get(sn.getSensorId()).setBackground(true? new Color(181, 13, 21) : new Color(13, 12, 181));
+        sensorPanels.get(sn.getSensorId()).setBackground(sn.getStatus()? new Color(181, 13, 21) : new Color(13, 12, 181));
     }
 
     public void setColorForMotion(SensorNotification sn){
-        sensorPanels.get(sn.getSensorId()).setBackground(true? new Color(12, 164, 181) : new Color(181, 13, 108));
+        sensorPanels.get(sn.getSensorId()).setBackground(sn.getStatus()? new Color(12, 164, 181) : new Color(181, 13, 108));
     }
 
     public void GenerateFloorView(JMenu floor){
@@ -374,7 +379,7 @@ public class MainWindow extends JFrame {
                     case MotionSensor: sensorPanels.get(s.getId()).setBackground(new Color(181, 13, 108)); s.subscribe(subscriber2); break;
                     case TemperatureSensor:
                         TemperatureSensor t = (TemperatureSensor) s;
-                        sensorPanels.get(s.getId()).add(new JLabel(t.getCurrentTemperature()+"C"));
+                        sensorPanels.get(s.getId()).add(new JLabel(t.getCurrentTemperature()+"°C"));
                         Color fontColor = getColorBasedOnTemperature(t.getCurrentTemperature());
                         sensorPanels.get(s.getId()).setForeground(fontColor)
                         ;s.subscribe(subscriber1); break;}

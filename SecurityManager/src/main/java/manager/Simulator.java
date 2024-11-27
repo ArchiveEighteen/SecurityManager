@@ -112,7 +112,7 @@ public class Simulator {
             while(!hasSimultanious.get(0)) {
                 sensorSleepTime.forEach((sensor, time) -> {
                     if (!hasSimultanious.get(0) && Math.random() >= 0.5){
-                        time = (long)0;
+                        sensorSleepTime.put(sensor, 0l);
                         hasSimultanious.set(0,true);
                     }
                 });
