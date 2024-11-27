@@ -1,5 +1,6 @@
 package Windows;
 
+
 import manager.Floor;
 import manager.Room;
 import manager.SecurityManager;
@@ -119,6 +120,7 @@ public class MainWindow extends JFrame {
         containerPanel.setBackground(new Color(200, 220, 240)); // Колір фону позаду floorPanel
         add(containerPanel, BorderLayout.CENTER);*/
 
+
         // Додати слухача для зміни розміру вікна
         addComponentListener(new ComponentAdapter() {
             @Override
@@ -210,7 +212,6 @@ public class MainWindow extends JFrame {
                 updateFloorNames();
                 menuFloors.revalidate();
                 menuFloors.repaint();
-
                 JOptionPane.showMessageDialog(null,
                         floor.getText() + " has been successfully deleted.",
                         "Floor Deleted",

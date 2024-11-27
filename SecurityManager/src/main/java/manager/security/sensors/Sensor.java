@@ -10,19 +10,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class Sensor implements Flow.Publisher<SensorNotification> {
     protected UUID id;
     protected AtomicBoolean status;
+    protected SensorType type;
     protected UUID floorId;
     protected UUID roomId;
     protected List<Flow.Subscriber<? super SensorNotification>> subscribers = new ArrayList<>();
 
-    public Sensor(UUID floorId, UUID roomId) {
+    public Sensor(SensorType type, UUID floorId, UUID roomId) {
         id = UUID.randomUUID();
+        this.type = type;
         this.floorId = floorId;
         this.roomId = roomId;
         status = new AtomicBoolean(false);
     }
 
-    protected Sensor(UUID id, UUID floorId, UUID roomId, boolean status) {
+    protected Sensor(SensorType type, UUID id, UUID floorId, UUID roomId, boolean status) {
         this.id = id;
+        this.type = type;
         this.floorId = floorId;
         this.roomId = roomId;
         this.status = new AtomicBoolean(status);
@@ -36,6 +39,9 @@ public abstract class Sensor implements Flow.Publisher<SensorNotification> {
     }
     public List<Flow.Subscriber<? super SensorNotification>> getSubscribers() {
         return Collections.unmodifiableList(subscribers);
+    }
+    public SensorType getType() {
+        return type;
     }
 
     protected void trigger(){

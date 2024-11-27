@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.UUID;
 
+
 public class AddRoom extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
@@ -14,6 +15,7 @@ public class AddRoom extends JDialog {
     private JSpinner areaSpinner;
     private JSpinner windowsSpinner;
     private JSpinner doorsSpinner;
+
     public AddRoom(MainWindow parent, int floorId, Room room) {
         setTitle("Add Room");
         setSize(600, 400); // Set window size to 600x400
@@ -42,6 +44,7 @@ public class AddRoom extends JDialog {
         areaSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 1000, 1));
         JSpinner.NumberEditor areaEditor = new JSpinner.NumberEditor(areaSpinner, "0.0");
         areaSpinner.setEditor(areaEditor);
+
         contentPane.add(areaSpinner, gbc);
 
         // Row 2: Number of windows
@@ -72,6 +75,7 @@ public class AddRoom extends JDialog {
             doorsSpinner.setValue(room.getDoorsAmount());
         }
 
+
         // Buttons panel
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
@@ -85,6 +89,7 @@ public class AddRoom extends JDialog {
 
         // Configure Add Room button
         buttonOK = new RoundedButton("Confirm");
+
         buttonOK.setBackground(Color.decode("#1875BB"));
         buttonOK.setForeground(Color.WHITE);
 
@@ -93,6 +98,7 @@ public class AddRoom extends JDialog {
 
         add(contentPane, BorderLayout.CENTER);
         add(buttonsPanel, BorderLayout.SOUTH);
+
 
         buttonCancel.addActionListener(e -> onCancel());
         buttonOK.addActionListener(e -> {
@@ -112,10 +118,12 @@ public class AddRoom extends JDialog {
             }
         });
 
+
         setModal(true);
         pack();
         setLocationRelativeTo(null); // Center on screen
     }
+
 
     private void onCancel() {
         dispose();
@@ -124,7 +132,6 @@ public class AddRoom extends JDialog {
     public static void main(String[] args, MainWindow parent, int floor, Room room) {
         AddRoom dialog = new AddRoom(parent, floor, room);
         dialog.setVisible(true);
-//        System.exit(0);
     }
 }
 

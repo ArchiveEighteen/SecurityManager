@@ -26,14 +26,14 @@ public class TemperatureSensor extends Sensor {
     }
 
     public TemperatureSensor(UUID floorId, UUID roomId) {
-        super(floorId, roomId);
+        super(SensorType.TemperatureSensor, floorId, roomId);
 
         // TODO: Set min and max temperature. Get values from file that contains standards
     }
 
     public TemperatureSensor(UUID id, UUID floorId, UUID roomId, boolean status, double currentTemperature,
                                 double minTemperature, double maxTemperature) {
-        super(id, floorId, roomId, status);
+        super(SensorType.TemperatureSensor, id, floorId, roomId, status);
         this.currentTemperature = currentTemperature;
         this.minTemperature = minTemperature;
         this.maxTemperature = maxTemperature;
