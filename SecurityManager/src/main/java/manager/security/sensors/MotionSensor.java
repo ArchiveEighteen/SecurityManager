@@ -9,7 +9,7 @@ public class MotionSensor extends Sensor {
 
     public void detectMovement(){
         trigger();
-        Logger.getInstance().log(this.floorId, roomId, "BreachDetected", LogType.MotionSensor);
+        Logger.getInstance().log(this.floorId, roomId, "Movement detected", LogType.MotionSensor);
         // TODO: turn on camera and log
     }
     public MotionSensor(UUID floorId, UUID sensorId) {

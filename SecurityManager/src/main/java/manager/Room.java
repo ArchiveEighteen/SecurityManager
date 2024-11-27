@@ -1,11 +1,14 @@
 package manager;
 
+import logger.LogType;
+import logger.Logger;
 import manager.security.sensorcreators.MotionSensorCreator;
 import manager.security.sensorcreators.OpenSensorCreator;
 import manager.security.sensorcreators.SensorCreator;
 import manager.security.sensorcreators.TemperatureSensorCreator;
 import manager.security.sensors.Sensor;
 
+import java.io.IOException;
 import java.util.*;
 
 public class Room {
@@ -31,6 +34,7 @@ public class Room {
         sensors = new ArrayList<>();
 
         updateRoomParameters(windowsAmount, doorsAmount, area);
+        Logger.getInstance().log(this.floorId, id, "Room was created", LogType.System);
     }
 
     public void updateRoomParameters(int windowsAmount, int doorsAmount, double area) {
@@ -51,15 +55,36 @@ public class Room {
         // TODO: Read from file that contains standards for amount of sensors per room, create sensor creators
         // TODO: and add them to sensorCreators list
 
+        SensorCalculator.SensorResult result = null;
+        try{
+            SensorCalculator calculator = new SensorCalculator();
+            result = calculator.calculateSensors(area, doorsAmount, windowsAmount);
+        }catch(IOException e){
+            Logger.getInstance().log(floorId, id, "Unable to read data from requirement file", LogType.System);
+        }
+
+        if(result != null) {
+            for(int i = 0; i < result.getOpenSensors(); i++){
+                sensorCreators.add(new OpenSensorCreator());
+            }
+            for(int i = 0; i < result.getMotionSensors(); i++){
+                sensorCreators.add(new MotionSensorCreator());
+            }
+            for(int i = 0; i < result.getTemperatureSensors(); i++){
+                sensorCreators.add(new TemperatureSensorCreator());
+            }
+        }
+
+
         // TODO: Delete section below after completing aforementioned task
         // start section
-        sensorCreators.add(new TemperatureSensorCreator());
-        for(int i = 0; i < doorsAmount+windowsAmount; i++) {
-            sensorCreators.add(new OpenSensorCreator());
-        }
-        for(int i = 0; i < area / 15 + 1; i++) {
-            sensorCreators.add(new MotionSensorCreator());
-        }
+//        sensorCreators.add(new TemperatureSensorCreator());
+//        for(int i = 0; i < doorsAmount+windowsAmount; i++) {
+//            sensorCreators.add(new OpenSensorCreator());
+//        }
+//        for(int i = 0; i < area / 15 + 1; i++) {
+//            sensorCreators.add(new MotionSensorCreator());
+//        }
         // end section
 
         return sensorCreators;
