@@ -30,16 +30,6 @@ public class LogWindow extends JFrame {
 
         add(topPanel, BorderLayout.NORTH);
 
-        // Панель для фільтра
-        JPanel filterPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        filterPanel.setBackground(new Color(200, 220, 240));
-
-        JLabel filterLabel = new JLabel("Filter by");
-        JComboBox<String> filterComboBox = new JComboBox<>(new String[]{"Date", "Floor", "Room", "Event", "Sensor"});
-        filterPanel.add(filterLabel);
-        filterPanel.add(filterComboBox);
-
-        topPanel.add(filterPanel, BorderLayout.EAST);
 
         // Панель для таблиці з відступами
         JPanel tablePanel = new JPanel();

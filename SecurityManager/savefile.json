@@ -1,0 +1,45 @@
+{
+  "floors": [
+    {
+      "id": "f954c463-c74c-4f35-8b24-1a8f64dd4c13",
+      "rooms": [
+        {
+          "id": "2224e1be-59a5-4153-808f-f00087bd6935",
+          "windowsAmount": 2,
+          "doorsAmount": 1,
+          "area": 30.0,
+          "sensors": [
+            {
+              "id": "bed19cb3-be9e-4d39-bf41-21107aebebea",
+              "status": false,
+              "type": "temperature",
+              "currentTemperature": 0.0,
+              "maxTemperature": 35.0,
+              "minTemperature": 10.0
+            },
+            {
+              "id": "f4854683-e51e-41af-89aa-677a6a0b1f6f",
+              "status": false,
+              "type": "open"
+            },
+            {
+              "id": "f2e385f8-0af6-4449-8d30-96b73d8b9140",
+              "status": false,
+              "type": "open"
+            },
+            {
+              "id": "53cda091-ec7a-4f51-8058-e2f1185380e4",
+              "status": false,
+              "type": "open"
+            },
+            {
+              "id": "1c26dee7-8166-42cb-b503-cc8af2a0c482",
+              "status": false,
+              "type": "motion"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
