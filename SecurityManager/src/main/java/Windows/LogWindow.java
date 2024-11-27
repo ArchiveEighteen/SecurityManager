@@ -1,62 +1,32 @@
 package Windows;
 
+import logger.Log;
+import logger.LogReader;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.List;
+import java.time.format.DateTimeFormatter;
 
 public class LogWindow extends JFrame {
 
-    public LogWindow() {
+    public LogWindow(JFrame parent) {
         setTitle("Event Log");
         setSize(900, 600);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(parent);
         setLayout(new BorderLayout());
 
-        // Панель меню, яка буде такою ж, як у головному вікні
-        JMenuBar menuBar = new JMenuBar();
-        menuBar.setBackground(Color.decode("#DAEBF7"));
-        menuBar.setFont(new Font("Inter", Font.PLAIN, 18));
-
-        JMenu menuExit = new JMenu("Exit");
-        JMenu menuTools = new JMenu("Tools");
-        JMenu menuFloors = new JMenu("Floors");
-        JMenu menuLog = new JMenu("Log");
-        JMenu menuSimulation = new JMenu("Simulation");
-
-        // Додавання підпунктів до Tools
-        JMenuItem addFloorItem = new JMenuItem("Add new floor");
-        menuTools.add(addFloorItem);
-
-        // Додавання підпунктів до Floors
-        JMenuItem floor1 = new JMenuItem("Floor 1");
-        JMenuItem floor2 = new JMenuItem("Floor 2");
-        JMenuItem floor3 = new JMenuItem("Floor 3");
-        menuFloors.add(floor1);
-        menuFloors.add(floor2);
-        menuFloors.add(floor3);
-
-        // Додавання підпунктів до Simulation
-        JMenuItem startSimulation = new JMenuItem("Start");
-        JMenuItem stopSimulation = new JMenuItem("Stop");
-        menuSimulation.add(startSimulation);
-        menuSimulation.add(stopSimulation);
-
-        menuBar.add(menuExit);
-        menuBar.add(menuTools);
-        menuBar.add(menuFloors);
-        menuBar.add(menuLog);
-        menuBar.add(menuSimulation);
-        setJMenuBar(menuBar);
-
-        // Панель заголовку
         JPanel topPanel = new JPanel(new BorderLayout());
         topPanel.setBackground(new Color(200, 220, 240));
 
         JLabel logLabel = new JLabel("  Event Log", JLabel.LEFT);
-        logLabel.setFont(new Font("Inter", Font.BOLD, 20));
+        logLabel.setFont(new Font("Inter", Font.PLAIN, 20));
         topPanel.add(logLabel, BorderLayout.NORTH);
+        logLabel.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
 
         add(topPanel, BorderLayout.NORTH);
 
@@ -65,7 +35,7 @@ public class LogWindow extends JFrame {
         filterPanel.setBackground(new Color(200, 220, 240));
 
         JLabel filterLabel = new JLabel("Filter by");
-        JComboBox<String> filterComboBox = new JComboBox<>(new String[]{"Date", "Floor", "Room", "Event", "System Reaction", "Sensor"});
+        JComboBox<String> filterComboBox = new JComboBox<>(new String[]{"Date", "Floor", "Room", "Event", "Sensor"});
         filterPanel.add(filterLabel);
         filterPanel.add(filterComboBox);
 
@@ -83,7 +53,6 @@ public class LogWindow extends JFrame {
         tableModel.addColumn("Floor");
         tableModel.addColumn("Room");
         tableModel.addColumn("Event");
-        tableModel.addColumn("System Reaction");
         tableModel.addColumn("Sensor");
 
         // JTable для відображення логів
@@ -123,8 +92,7 @@ public class LogWindow extends JFrame {
         logTable.getColumnModel().getColumn(1).setPreferredWidth(50);  // Floor
         logTable.getColumnModel().getColumn(2).setPreferredWidth(50);  // Room
         logTable.getColumnModel().getColumn(3).setPreferredWidth(150); // Event
-        logTable.getColumnModel().getColumn(4).setPreferredWidth(200); // System Reaction
-        logTable.getColumnModel().getColumn(5).setPreferredWidth(100); // Sensor
+        logTable.getColumnModel().getColumn(4).setPreferredWidth(100); // Sensor
 
         // Встановлення кольору фону таблиці
         logTable.setBackground(Color.decode("#DAEBF7"));
@@ -153,13 +121,33 @@ public class LogWindow extends JFrame {
 
         // Додавання панелі таблиці до вікна
         add(tablePanel, BorderLayout.CENTER);
+        // Завантаження логів
+        loadLogsIntoTable(tableModel);
+
 
         // Показати вікно
         setVisible(true);
     }
 
-    public static void main(String[] args) {
+    private void loadLogsIntoTable(DefaultTableModel tableModel) {
+        LogReader logReader = LogReader.getInstance();
+        List<Log> logs = logReader.getLogs();
+
+        for (Log log : logs) {
+            tableModel.addRow(new Object[]{
+                    log.getTime().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss")),
+                    log.getFloorId(),
+                    log.getRoomId(),
+                    log.getMessage(),
+                    log.getType(),
+
+            });
+        }
+    }
+
+    public static void main(String[] args, JFrame parent) {
         // Запуск LogWindow
-        SwingUtilities.invokeLater(LogWindow::new);
+        LogWindow newLog = new LogWindow(parent);
+        newLog.setVisible(true);
     }
 }

@@ -20,7 +20,7 @@ public class Floor {
         return room;
     }
     public boolean deleteRoom(UUID roomId){
-        return rooms.removeIf(r -> r.getId().equals(id));
+        return rooms.removeIf(r -> r.getId().equals(roomId));
     }
 
     public UUID getId(){

@@ -22,6 +22,15 @@ public class SecurityManager {
         floors.addAll(floorList);
     }
 
+    //додала отримання кількості поверхів треба для юайки щоб весь час не тягати списки
+    public int getFloorCount(){
+        return floors.size();
+    }
+
+    public void addRoom(Room room, int n){
+        floors.get(n).addRoom(room);
+    }
+
     public List<Floor> getFloors() {
         return floors;
     }

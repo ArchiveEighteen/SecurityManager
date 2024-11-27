@@ -1,7 +1,12 @@
 package Windows;
 
+import manager.Room;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.util.UUID;
+
 
 public class AddRoom extends JDialog {
     private JPanel contentPane;
@@ -10,26 +15,22 @@ public class AddRoom extends JDialog {
     private JSpinner areaSpinner;
     private JSpinner windowsSpinner;
     private JSpinner doorsSpinner;
-    private JCheckBox temperatureSensorCheckBox;
-    private JSpinner motionSensorsSpinner;
-    private JSpinner doorSensorsSpinner;
-    private JSpinner windowSensorsSpinner;
 
-    public AddRoom() {
+    public AddRoom(MainWindow parent, int floorId, Room room) {
         setTitle("Add Room");
         setSize(600, 400); // Set window size to 600x400
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(parent);
         setLayout(new BorderLayout());
-
         // Main panel
         contentPane = new JPanel();
+        contentPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         contentPane.setLayout(new GridBagLayout());
         contentPane.setBackground(new Color(200, 220, 240)); // Set background color
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Font for labels
         Font labelFont = new Font("SansSerif", Font.BOLD, 14); // Increase font size
 
         // Row 1: Area of the room
@@ -41,6 +42,9 @@ public class AddRoom extends JDialog {
 
         gbc.gridx = 1;
         areaSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 1000, 1));
+        JSpinner.NumberEditor areaEditor = new JSpinner.NumberEditor(areaSpinner, "0.0");
+        areaSpinner.setEditor(areaEditor);
+
         contentPane.add(areaSpinner, gbc);
 
         // Row 2: Number of windows
@@ -65,54 +69,16 @@ public class AddRoom extends JDialog {
         doorsSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
         contentPane.add(doorsSpinner, gbc);
 
-        // Row 4: Temperature sensor
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        JLabel temperatureLabel = new JLabel("Temperature sensor");
-        temperatureLabel.setFont(labelFont);
-        contentPane.add(temperatureLabel, gbc);
+        if (room != null) {
+            areaSpinner.setValue(room.getArea());
+            windowsSpinner.setValue(room.getWindowsAmount());
+            doorsSpinner.setValue(room.getDoorsAmount());
+        }
 
-        gbc.gridx = 1;
-        temperatureSensorCheckBox = new JCheckBox();
-        temperatureSensorCheckBox.setBackground(new Color(200, 220, 240)); // Set background color for the checkbox area
-        contentPane.add(temperatureSensorCheckBox, gbc);
 
-        // Row 5: Motion sensors
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        JLabel motionLabel = new JLabel("Motion sensors");
-        motionLabel.setFont(labelFont);
-        contentPane.add(motionLabel, gbc);
-
-        gbc.gridx = 1;
-        motionSensorsSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
-        contentPane.add(motionSensorsSpinner, gbc);
-
-        // Row 6: Sensor for doors
-        gbc.gridx = 0;
-        gbc.gridy = 5;
-        JLabel doorSensorLabel = new JLabel("Sensor for doors");
-        doorSensorLabel.setFont(labelFont);
-        contentPane.add(doorSensorLabel, gbc);
-
-        gbc.gridx = 1;
-        doorSensorsSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
-        contentPane.add(doorSensorsSpinner, gbc);
-
-        // Row 7: Sensor for windows
-        gbc.gridx = 0;
-        gbc.gridy = 6;
-        JLabel windowSensorLabel = new JLabel("Sensor for Windows");
-        windowSensorLabel.setFont(labelFont);
-        contentPane.add(windowSensorLabel, gbc);
-
-        gbc.gridx = 1;
-        windowSensorsSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
-        contentPane.add(windowSensorsSpinner, gbc);
-
-        // Buttons panel
         // Buttons panel
         JPanel buttonsPanel = new JPanel();
+        buttonsPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
         buttonsPanel.setLayout(new FlowLayout(FlowLayout.CENTER)); // Add horizontal and vertical gaps
         buttonsPanel.setBackground(new Color(200, 220, 240));
 
@@ -122,7 +88,8 @@ public class AddRoom extends JDialog {
         buttonCancel.setForeground(Color.BLACK);
 
         // Configure Add Room button
-        buttonOK = new RoundedButton("Add room");
+        buttonOK = new RoundedButton("Confirm");
+
         buttonOK.setBackground(Color.decode("#1875BB"));
         buttonOK.setForeground(Color.WHITE);
 
@@ -132,30 +99,39 @@ public class AddRoom extends JDialog {
         add(contentPane, BorderLayout.CENTER);
         add(buttonsPanel, BorderLayout.SOUTH);
 
-        // Button actions
-        buttonOK.addActionListener(e -> onOK());
+
         buttonCancel.addActionListener(e -> onCancel());
+        buttonOK.addActionListener(e -> {
+            try {
+                int windows = (int) windowsSpinner.getValue();
+                int doors = (int) doorsSpinner.getValue();
+                double area = ((Number) areaSpinner.getValue()).doubleValue();
+
+                if(room == null){
+                parent.getAddRoomResult(floorId, windows, doors, area);}
+                else {
+                parent.getEditRoomResults(floorId, room.getId(), area, windows, doors);
+                }
+                dispose();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
 
         setModal(true);
         pack();
         setLocationRelativeTo(null); // Center on screen
     }
 
-    private void onOK() {
-        // Logic to handle room addition
-        System.out.println("Room added!");
-        dispose();
-    }
 
     private void onCancel() {
-        // Logic to handle cancel action
         dispose();
     }
 
-    public static void main(String[] args) {
-        AddRoom dialog = new AddRoom();
+    public static void main(String[] args, MainWindow parent, int floor, Room room) {
+        AddRoom dialog = new AddRoom(parent, floor, room);
         dialog.setVisible(true);
-        System.exit(0);
     }
 }
 
@@ -172,7 +148,7 @@ class RoundedButton extends JButton {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         g2.setColor(getBackground());
-        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 10, 10);
 
         // Draw the button's text
         g2.setColor(getForeground());

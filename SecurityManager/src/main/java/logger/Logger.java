@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 public class Logger {
     private static Logger instance;
@@ -19,9 +20,9 @@ public class Logger {
         return instance;
     }
 
-    public void log(String message) {
+    public void log(UUID floorId, UUID roomId, String message, LogType logType) {
         String timestamp = LocalDateTime.now().format(formatter);
-        String logMessage = timestamp + " - " + message;
+        String logMessage = timestamp + "/" + floorId + "/" + roomId + "/" + message + "/" + logType.name();
 
         try (FileWriter writer = new FileWriter(logFile, true)) {
             writer.write(logMessage + "\n");
