@@ -75,6 +75,8 @@ public class MainWindow extends JFrame {
         JMenuItem stopSimulation = new JMenuItem("Stop");
         menuSimulation.add(startSimulation);
         menuSimulation.add(stopSimulation);
+        startSimulation.addActionListener(e -> StartSimulation());
+        stopSimulation.addActionListener(e -> StopSimulation());
 
         menuBar.add(menuExit);
         menuBar.add(menuTools);
@@ -372,7 +374,7 @@ public class MainWindow extends JFrame {
                     case MotionSensor: sensorPanels.get(s.getId()).setBackground(new Color(181, 13, 108)); s.subscribe(subscriber2); break;
                     case TemperatureSensor:
                         TemperatureSensor t = (TemperatureSensor) s;
-                        sensorPanels.get(s.getId()).add(new Label(t.getCurrentTemperature()+"C"));
+                        sensorPanels.get(s.getId()).add(new JLabel(t.getCurrentTemperature()+"C"));
                         Color fontColor = getColorBasedOnTemperature(t.getCurrentTemperature());
                         sensorPanels.get(s.getId()).setForeground(fontColor)
                         ;s.subscribe(subscriber1); break;}
@@ -411,7 +413,7 @@ public class MainWindow extends JFrame {
                             case MotionSensor: sensorPanels.get(s.getId()).setBackground(new Color(181, 13, 108)); s.subscribe(subscriber2); break;
                             case TemperatureSensor:
                                 TemperatureSensor t = (TemperatureSensor) s;
-                                sensorPanels.get(s.getId()).add(new Label(t.getCurrentTemperature()+"C"));
+                                sensorPanels.get(s.getId()).add(new JLabel(t.getCurrentTemperature()+"C"));
                                 Color fontColor = getColorBasedOnTemperature(t.getCurrentTemperature());
                                 sensorPanels.get(s.getId()).setForeground(fontColor);
                                 s.subscribe(subscriber1); break;}
@@ -455,12 +457,12 @@ public class MainWindow extends JFrame {
         SwingUtilities.invokeLater(() -> new LogWindow(this));
     }
 
-    public static void StartSimulation(){
-
+    public void StartSimulation(){
+        manager.startSimulation();
     }
 
-    public static void StopSimulation(){
-
+    public void StopSimulation(){
+        manager.stopSimulation();
     }
 
     public static void CloseProgram(){

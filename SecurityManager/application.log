@@ -71,3 +71,292 @@
 2024.11.27 10:35:59/e7ef7a38-e0e2-4703-ace0-f4f62739a9be/cd2e343d-6765-4e22-9fb3-c7b973eafbdc/Open sensor was created/System
 2024.11.27 10:35:59/e7ef7a38-e0e2-4703-ace0-f4f62739a9be/cd2e343d-6765-4e22-9fb3-c7b973eafbdc/Motion sensor was created/System
 2024.11.27 10:35:59/e7ef7a38-e0e2-4703-ace0-f4f62739a9be/cd2e343d-6765-4e22-9fb3-c7b973eafbdc/Room was created/System
+2024.11.27 10:46:35/17f95a49-69de-45f3-bd3d-517a43a60fe9/17f95a49-69de-45f3-bd3d-517a43a60fe9/Floor was created/System
+2024.11.27 10:46:47/17f95a49-69de-45f3-bd3d-517a43a60fe9/3442edeb-401e-40b0-8a0d-335143f7041c/Temperature sensor was created/System
+2024.11.27 10:46:47/17f95a49-69de-45f3-bd3d-517a43a60fe9/3442edeb-401e-40b0-8a0d-335143f7041c/Open sensor was created/System
+2024.11.27 10:46:47/17f95a49-69de-45f3-bd3d-517a43a60fe9/3442edeb-401e-40b0-8a0d-335143f7041c/Open sensor was created/System
+2024.11.27 10:46:47/17f95a49-69de-45f3-bd3d-517a43a60fe9/3442edeb-401e-40b0-8a0d-335143f7041c/Motion sensor was created/System
+2024.11.27 10:46:47/17f95a49-69de-45f3-bd3d-517a43a60fe9/3442edeb-401e-40b0-8a0d-335143f7041c/Room was created/System
+2024.11.27 10:46:58/17f95a49-69de-45f3-bd3d-517a43a60fe9/692de225-f5d5-4d1e-96cb-f9df6cf3a754/Temperature sensor was created/System
+2024.11.27 10:46:58/17f95a49-69de-45f3-bd3d-517a43a60fe9/692de225-f5d5-4d1e-96cb-f9df6cf3a754/Open sensor was created/System
+2024.11.27 10:46:58/17f95a49-69de-45f3-bd3d-517a43a60fe9/692de225-f5d5-4d1e-96cb-f9df6cf3a754/Open sensor was created/System
+2024.11.27 10:46:58/17f95a49-69de-45f3-bd3d-517a43a60fe9/692de225-f5d5-4d1e-96cb-f9df6cf3a754/Motion sensor was created/System
+2024.11.27 10:46:58/17f95a49-69de-45f3-bd3d-517a43a60fe9/692de225-f5d5-4d1e-96cb-f9df6cf3a754/Room was created/System
+2024.11.27 10:47:04/17f95a49-69de-45f3-bd3d-517a43a60fe9/3442edeb-401e-40b0-8a0d-335143f7041c/Breach detected/OpenSensor
+2024.11.27 10:47:05/17f95a49-69de-45f3-bd3d-517a43a60fe9/692de225-f5d5-4d1e-96cb-f9df6cf3a754/Breach detected/OpenSensor
+2024.11.27 10:47:06/17f95a49-69de-45f3-bd3d-517a43a60fe9/692de225-f5d5-4d1e-96cb-f9df6cf3a754/Breach detected/OpenSensor
+2024.11.27 10:47:08/17f95a49-69de-45f3-bd3d-517a43a60fe9/3442edeb-401e-40b0-8a0d-335143f7041c/Movement detected/MotionSensor
+2024.11.27 10:47:09/17f95a49-69de-45f3-bd3d-517a43a60fe9/692de225-f5d5-4d1e-96cb-f9df6cf3a754/Movement detected/MotionSensor
+2024.11.27 10:47:09/17f95a49-69de-45f3-bd3d-517a43a60fe9/3442edeb-401e-40b0-8a0d-335143f7041c/Breach detected/OpenSensor
+2024.11.27 10:53:32/63f94263-c524-4ce7-ad6f-8fb721671dcd/63f94263-c524-4ce7-ad6f-8fb721671dcd/Floor was created/System
+2024.11.27 10:53:45/63f94263-c524-4ce7-ad6f-8fb721671dcd/8ba5841c-5b82-4988-a2e6-5fe8f9dc0e3d/Temperature sensor was created/System
+2024.11.27 10:53:45/63f94263-c524-4ce7-ad6f-8fb721671dcd/8ba5841c-5b82-4988-a2e6-5fe8f9dc0e3d/Open sensor was created/System
+2024.11.27 10:53:45/63f94263-c524-4ce7-ad6f-8fb721671dcd/8ba5841c-5b82-4988-a2e6-5fe8f9dc0e3d/Open sensor was created/System
+2024.11.27 10:53:45/63f94263-c524-4ce7-ad6f-8fb721671dcd/8ba5841c-5b82-4988-a2e6-5fe8f9dc0e3d/Open sensor was created/System
+2024.11.27 10:53:45/63f94263-c524-4ce7-ad6f-8fb721671dcd/8ba5841c-5b82-4988-a2e6-5fe8f9dc0e3d/Motion sensor was created/System
+2024.11.27 10:53:45/63f94263-c524-4ce7-ad6f-8fb721671dcd/8ba5841c-5b82-4988-a2e6-5fe8f9dc0e3d/Room was created/System
+2024.11.27 10:54:11/63f94263-c524-4ce7-ad6f-8fb721671dcd/8ba5841c-5b82-4988-a2e6-5fe8f9dc0e3d/Breach detected/OpenSensor
+2024.11.27 10:54:13/63f94263-c524-4ce7-ad6f-8fb721671dcd/8ba5841c-5b82-4988-a2e6-5fe8f9dc0e3d/Movement detected/MotionSensor
+2024.11.27 10:54:16/63f94263-c524-4ce7-ad6f-8fb721671dcd/8ba5841c-5b82-4988-a2e6-5fe8f9dc0e3d/Breach detected/OpenSensor
+2024.11.27 10:54:19/63f94263-c524-4ce7-ad6f-8fb721671dcd/8ba5841c-5b82-4988-a2e6-5fe8f9dc0e3d/Breach detected/OpenSensor
+2024.11.27 10:55:08/b9a54a83-8e9c-4507-80a1-385901960bfe/b9a54a83-8e9c-4507-80a1-385901960bfe/Floor was created/System
+2024.11.27 10:55:25/b9a54a83-8e9c-4507-80a1-385901960bfe/4ac99a96-7078-44d9-ac15-293cc10465b5/Temperature sensor was created/System
+2024.11.27 10:55:25/b9a54a83-8e9c-4507-80a1-385901960bfe/4ac99a96-7078-44d9-ac15-293cc10465b5/Open sensor was created/System
+2024.11.27 10:55:25/b9a54a83-8e9c-4507-80a1-385901960bfe/4ac99a96-7078-44d9-ac15-293cc10465b5/Open sensor was created/System
+2024.11.27 10:55:25/b9a54a83-8e9c-4507-80a1-385901960bfe/4ac99a96-7078-44d9-ac15-293cc10465b5/Motion sensor was created/System
+2024.11.27 10:55:25/b9a54a83-8e9c-4507-80a1-385901960bfe/4ac99a96-7078-44d9-ac15-293cc10465b5/Room was created/System
+2024.11.27 10:55:41/b9a54a83-8e9c-4507-80a1-385901960bfe/4ac99a96-7078-44d9-ac15-293cc10465b5/Breach detected/OpenSensor
+2024.11.27 10:55:43/b9a54a83-8e9c-4507-80a1-385901960bfe/4ac99a96-7078-44d9-ac15-293cc10465b5/Movement detected/MotionSensor
+2024.11.27 10:55:43/b9a54a83-8e9c-4507-80a1-385901960bfe/4ac99a96-7078-44d9-ac15-293cc10465b5/Breach detected/OpenSensor
+2024.11.27 11:00:05/f8bc1511-d33b-4478-9e1d-fcc22ca1dae0/f8bc1511-d33b-4478-9e1d-fcc22ca1dae0/Floor was created/System
+2024.11.27 11:00:18/f8bc1511-d33b-4478-9e1d-fcc22ca1dae0/e1d7ee11-8353-4a99-998e-24158434df55/Temperature sensor was created/System
+2024.11.27 11:00:18/f8bc1511-d33b-4478-9e1d-fcc22ca1dae0/e1d7ee11-8353-4a99-998e-24158434df55/Open sensor was created/System
+2024.11.27 11:00:18/f8bc1511-d33b-4478-9e1d-fcc22ca1dae0/e1d7ee11-8353-4a99-998e-24158434df55/Open sensor was created/System
+2024.11.27 11:00:18/f8bc1511-d33b-4478-9e1d-fcc22ca1dae0/e1d7ee11-8353-4a99-998e-24158434df55/Motion sensor was created/System
+2024.11.27 11:00:18/f8bc1511-d33b-4478-9e1d-fcc22ca1dae0/e1d7ee11-8353-4a99-998e-24158434df55/Room was created/System
+2024.11.27 11:00:30/f8bc1511-d33b-4478-9e1d-fcc22ca1dae0/e1d7ee11-8353-4a99-998e-24158434df55/Breach detected/OpenSensor
+2024.11.27 11:01:14/02498d50-ebd5-4a7b-8088-2707c1619f52/02498d50-ebd5-4a7b-8088-2707c1619f52/Floor was created/System
+2024.11.27 11:01:32/02498d50-ebd5-4a7b-8088-2707c1619f52/b1807251-a15d-4631-b43d-53a838b21e6e/Temperature sensor was created/System
+2024.11.27 11:01:32/02498d50-ebd5-4a7b-8088-2707c1619f52/b1807251-a15d-4631-b43d-53a838b21e6e/Open sensor was created/System
+2024.11.27 11:01:32/02498d50-ebd5-4a7b-8088-2707c1619f52/b1807251-a15d-4631-b43d-53a838b21e6e/Open sensor was created/System
+2024.11.27 11:01:32/02498d50-ebd5-4a7b-8088-2707c1619f52/b1807251-a15d-4631-b43d-53a838b21e6e/Motion sensor was created/System
+2024.11.27 11:01:32/02498d50-ebd5-4a7b-8088-2707c1619f52/b1807251-a15d-4631-b43d-53a838b21e6e/Room was created/System
+2024.11.27 11:01:54/02498d50-ebd5-4a7b-8088-2707c1619f52/b1807251-a15d-4631-b43d-53a838b21e6e/Movement detected/MotionSensor
+2024.11.27 11:01:55/02498d50-ebd5-4a7b-8088-2707c1619f52/b1807251-a15d-4631-b43d-53a838b21e6e/Breach detected/OpenSensor
+2024.11.27 11:01:56/02498d50-ebd5-4a7b-8088-2707c1619f52/b1807251-a15d-4631-b43d-53a838b21e6e/Breach detected/OpenSensor
+2024.11.27 11:03:58/38fcc857-abaf-4844-93b8-fdaa8a19bd4c/38fcc857-abaf-4844-93b8-fdaa8a19bd4c/Floor was created/System
+2024.11.27 11:04:15/38fcc857-abaf-4844-93b8-fdaa8a19bd4c/ecbe18e7-280d-4597-b658-92b880f62742/Temperature sensor was created/System
+2024.11.27 11:04:15/38fcc857-abaf-4844-93b8-fdaa8a19bd4c/ecbe18e7-280d-4597-b658-92b880f62742/Open sensor was created/System
+2024.11.27 11:04:15/38fcc857-abaf-4844-93b8-fdaa8a19bd4c/ecbe18e7-280d-4597-b658-92b880f62742/Open sensor was created/System
+2024.11.27 11:04:15/38fcc857-abaf-4844-93b8-fdaa8a19bd4c/ecbe18e7-280d-4597-b658-92b880f62742/Motion sensor was created/System
+2024.11.27 11:04:15/38fcc857-abaf-4844-93b8-fdaa8a19bd4c/ecbe18e7-280d-4597-b658-92b880f62742/Room was created/System
+2024.11.27 11:04:27/38fcc857-abaf-4844-93b8-fdaa8a19bd4c/ecbe18e7-280d-4597-b658-92b880f62742/Movement detected/MotionSensor
+2024.11.27 11:04:27/38fcc857-abaf-4844-93b8-fdaa8a19bd4c/ecbe18e7-280d-4597-b658-92b880f62742/Breach detected/OpenSensor
+2024.11.27 11:04:28/38fcc857-abaf-4844-93b8-fdaa8a19bd4c/ecbe18e7-280d-4597-b658-92b880f62742/Breach detected/OpenSensor
+2024.11.27 11:08:13/59be3383-40b7-42e7-816d-ddecd9cb11a2/59be3383-40b7-42e7-816d-ddecd9cb11a2/Floor was created/System
+2024.11.27 11:08:26/59be3383-40b7-42e7-816d-ddecd9cb11a2/028c64ea-d8ed-493f-83c8-0f61d4bf4b2e/Temperature sensor was created/System
+2024.11.27 11:08:26/59be3383-40b7-42e7-816d-ddecd9cb11a2/028c64ea-d8ed-493f-83c8-0f61d4bf4b2e/Open sensor was created/System
+2024.11.27 11:08:26/59be3383-40b7-42e7-816d-ddecd9cb11a2/028c64ea-d8ed-493f-83c8-0f61d4bf4b2e/Open sensor was created/System
+2024.11.27 11:08:26/59be3383-40b7-42e7-816d-ddecd9cb11a2/028c64ea-d8ed-493f-83c8-0f61d4bf4b2e/Motion sensor was created/System
+2024.11.27 11:08:26/59be3383-40b7-42e7-816d-ddecd9cb11a2/028c64ea-d8ed-493f-83c8-0f61d4bf4b2e/Room was created/System
+2024.11.27 11:08:35/59be3383-40b7-42e7-816d-ddecd9cb11a2/028c64ea-d8ed-493f-83c8-0f61d4bf4b2e/Breach detected/OpenSensor
+2024.11.27 11:08:36/59be3383-40b7-42e7-816d-ddecd9cb11a2/028c64ea-d8ed-493f-83c8-0f61d4bf4b2e/Movement detected/MotionSensor
+2024.11.27 11:08:38/59be3383-40b7-42e7-816d-ddecd9cb11a2/028c64ea-d8ed-493f-83c8-0f61d4bf4b2e/Breach detected/OpenSensor
+2024.11.27 11:11:05/182e5482-dd98-4a31-b177-cbaa59c31058/182e5482-dd98-4a31-b177-cbaa59c31058/Floor was created/System
+2024.11.27 11:11:17/182e5482-dd98-4a31-b177-cbaa59c31058/0f063e6c-0805-4640-81cc-95a9d795f034/Temperature sensor was created/System
+2024.11.27 11:11:17/182e5482-dd98-4a31-b177-cbaa59c31058/0f063e6c-0805-4640-81cc-95a9d795f034/Open sensor was created/System
+2024.11.27 11:11:17/182e5482-dd98-4a31-b177-cbaa59c31058/0f063e6c-0805-4640-81cc-95a9d795f034/Open sensor was created/System
+2024.11.27 11:11:17/182e5482-dd98-4a31-b177-cbaa59c31058/0f063e6c-0805-4640-81cc-95a9d795f034/Motion sensor was created/System
+2024.11.27 11:11:17/182e5482-dd98-4a31-b177-cbaa59c31058/0f063e6c-0805-4640-81cc-95a9d795f034/Room was created/System
+2024.11.27 11:11:25/182e5482-dd98-4a31-b177-cbaa59c31058/0f063e6c-0805-4640-81cc-95a9d795f034/Breach detected/OpenSensor
+2024.11.27 11:11:26/182e5482-dd98-4a31-b177-cbaa59c31058/0f063e6c-0805-4640-81cc-95a9d795f034/Movement detected/MotionSensor
+2024.11.27 11:11:28/182e5482-dd98-4a31-b177-cbaa59c31058/0f063e6c-0805-4640-81cc-95a9d795f034/Breach detected/OpenSensor
+2024.11.27 11:16:15/8d9bcd95-3828-4c71-9eb8-3a4547cea785/8d9bcd95-3828-4c71-9eb8-3a4547cea785/Floor was created/System
+2024.11.27 11:16:28/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Temperature sensor was created/System
+2024.11.27 11:16:28/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Open sensor was created/System
+2024.11.27 11:16:28/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Open sensor was created/System
+2024.11.27 11:16:28/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Motion sensor was created/System
+2024.11.27 11:16:28/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Room was created/System
+2024.11.27 11:16:38/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:16:40/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:16:42/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:16:59/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:16:59/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:00/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:00/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:01/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:02/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:02/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:03/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:04/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:05/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:06/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:06/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:07/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:08/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:09/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:09/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:10/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:11/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:12/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:13/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:13/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:14/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:15/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:16/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:16/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:17/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:18/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:19/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:20/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:20/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:21/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:22/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:23/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:23/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:24/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:25/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:26/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:26/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:27/8d9bcd95-3828-4c71-9eb8-3a4547cea785/6cc96fbf-bd40-482e-a5d0-699c8d31112c/Breach detected/OpenSensor
+2024.11.27 11:17:52/3c275abf-bf18-48f6-90f8-da4552a529b7/3c275abf-bf18-48f6-90f8-da4552a529b7/Floor was created/System
+2024.11.27 11:18:02/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Temperature sensor was created/System
+2024.11.27 11:18:02/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Open sensor was created/System
+2024.11.27 11:18:02/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Open sensor was created/System
+2024.11.27 11:18:02/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Motion sensor was created/System
+2024.11.27 11:18:02/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Room was created/System
+2024.11.27 11:18:06/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:07/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Movement detected/MotionSensor
+2024.11.27 11:18:07/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:08/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:09/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Movement detected/MotionSensor
+2024.11.27 11:18:10/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:11/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:12/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Movement detected/MotionSensor
+2024.11.27 11:18:13/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:14/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:15/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Movement detected/MotionSensor
+2024.11.27 11:18:16/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:17/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:18/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Movement detected/MotionSensor
+2024.11.27 11:18:19/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:20/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:21/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Movement detected/MotionSensor
+2024.11.27 11:18:22/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:24/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:24/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Movement detected/MotionSensor
+2024.11.27 11:18:25/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:27/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:28/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Movement detected/MotionSensor
+2024.11.27 11:18:28/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:30/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:31/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Movement detected/MotionSensor
+2024.11.27 11:18:32/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:33/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:18:34/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Movement detected/MotionSensor
+2024.11.27 11:18:34/3c275abf-bf18-48f6-90f8-da4552a529b7/caec596b-beda-402c-9a2b-83d9c3bcf12b/Breach detected/OpenSensor
+2024.11.27 11:21:35/2747e7db-6173-45e2-a38a-a1e15c8ed4c6/2747e7db-6173-45e2-a38a-a1e15c8ed4c6/Floor was created/System
+2024.11.27 11:21:50/2747e7db-6173-45e2-a38a-a1e15c8ed4c6/f96d1815-3ad9-4fef-92e0-ecca9af50251/Temperature sensor was created/System
+2024.11.27 11:21:50/2747e7db-6173-45e2-a38a-a1e15c8ed4c6/f96d1815-3ad9-4fef-92e0-ecca9af50251/Open sensor was created/System
+2024.11.27 11:21:50/2747e7db-6173-45e2-a38a-a1e15c8ed4c6/f96d1815-3ad9-4fef-92e0-ecca9af50251/Open sensor was created/System
+2024.11.27 11:21:50/2747e7db-6173-45e2-a38a-a1e15c8ed4c6/f96d1815-3ad9-4fef-92e0-ecca9af50251/Motion sensor was created/System
+2024.11.27 11:21:50/2747e7db-6173-45e2-a38a-a1e15c8ed4c6/f96d1815-3ad9-4fef-92e0-ecca9af50251/Room was created/System
+2024.11.27 11:23:41/2747e7db-6173-45e2-a38a-a1e15c8ed4c6/f96d1815-3ad9-4fef-92e0-ecca9af50251/Movement detected/MotionSensor
+2024.11.27 11:23:52/2747e7db-6173-45e2-a38a-a1e15c8ed4c6/f96d1815-3ad9-4fef-92e0-ecca9af50251/Breach detected/OpenSensor
+2024.11.27 11:29:23/ec7508b2-45e1-4f80-9a84-a88c14ffbd09/ec7508b2-45e1-4f80-9a84-a88c14ffbd09/Floor was created/System
+2024.11.27 11:29:30/ec7508b2-45e1-4f80-9a84-a88c14ffbd09/59b7d807-0520-4c4a-afa4-5bb933c4d533/Room was created/System
+2024.11.27 11:29:46/ec7508b2-45e1-4f80-9a84-a88c14ffbd09/fd513385-a491-408c-97ba-5de55c17c294/Temperature sensor was created/System
+2024.11.27 11:29:46/ec7508b2-45e1-4f80-9a84-a88c14ffbd09/fd513385-a491-408c-97ba-5de55c17c294/Open sensor was created/System
+2024.11.27 11:29:46/ec7508b2-45e1-4f80-9a84-a88c14ffbd09/fd513385-a491-408c-97ba-5de55c17c294/Open sensor was created/System
+2024.11.27 11:29:46/ec7508b2-45e1-4f80-9a84-a88c14ffbd09/fd513385-a491-408c-97ba-5de55c17c294/Open sensor was created/System
+2024.11.27 11:29:46/ec7508b2-45e1-4f80-9a84-a88c14ffbd09/fd513385-a491-408c-97ba-5de55c17c294/Motion sensor was created/System
+2024.11.27 11:29:46/ec7508b2-45e1-4f80-9a84-a88c14ffbd09/fd513385-a491-408c-97ba-5de55c17c294/Room was created/System
+2024.11.27 11:30:23/2298aa6f-6c69-4389-98f2-b76409a688c7/2298aa6f-6c69-4389-98f2-b76409a688c7/Floor was created/System
+2024.11.27 11:30:42/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature sensor was created/System
+2024.11.27 11:30:42/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Open sensor was created/System
+2024.11.27 11:30:42/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Open sensor was created/System
+2024.11.27 11:30:42/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Open sensor was created/System
+2024.11.27 11:30:42/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Motion sensor was created/System
+2024.11.27 11:30:42/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Room was created/System
+2024.11.27 11:30:46/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is normal/TemperatureSensor
+2024.11.27 11:30:47/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:30:48/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:30:48/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:30:49/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:30:50/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is higher than normal/TemperatureSensor
+2024.11.27 11:30:51/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:30:52/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:30:52/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:30:53/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:30:54/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is higher than normal/TemperatureSensor
+2024.11.27 11:30:55/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:30:56/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:30:57/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:30:58/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:30:58/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is normal/TemperatureSensor
+2024.11.27 11:30:59/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:30:59/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:00/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:01/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:03/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:03/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:04/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:05/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:06/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is higher than normal/TemperatureSensor
+2024.11.27 11:31:06/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:07/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:08/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:09/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:10/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is normal/TemperatureSensor
+2024.11.27 11:31:10/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:11/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:12/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:13/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:13/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is higher than normal/TemperatureSensor
+2024.11.27 11:31:14/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:15/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:16/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:16/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:17/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is higher than normal/TemperatureSensor
+2024.11.27 11:31:18/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:19/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:19/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:20/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:21/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is normal/TemperatureSensor
+2024.11.27 11:31:22/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:22/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:23/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:24/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:25/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is lower than normal/TemperatureSensor
+2024.11.27 11:31:25/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:26/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:27/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:27/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:28/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is normal/TemperatureSensor
+2024.11.27 11:31:28/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is higher than normal/TemperatureSensor
+2024.11.27 11:31:29/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:30/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:30/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:31/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:32/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is normal/TemperatureSensor
+2024.11.27 11:31:33/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:34/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:34/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:35/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:36/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is lower than normal/TemperatureSensor
+2024.11.27 11:31:37/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:38/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:38/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:39/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:40/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is lower than normal/TemperatureSensor
+2024.11.27 11:31:40/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:41/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:42/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:43/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:43/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is normal/TemperatureSensor
+2024.11.27 11:31:44/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:45/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:46/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:47/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:48/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is lower than normal/TemperatureSensor
+2024.11.27 11:31:49/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:49/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:50/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:51/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:52/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Temperature is normal/TemperatureSensor
+2024.11.27 11:31:52/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:53/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:54/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:54/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:56/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:57/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:31:58/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:31:58/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:32:00/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:32:01/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:32:02/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:32:03/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:32:04/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:32:05/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
+2024.11.27 11:32:06/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Movement detected/MotionSensor
+2024.11.27 11:32:07/2298aa6f-6c69-4389-98f2-b76409a688c7/2ee011ae-0a91-4776-86f0-1c7e090a7a35/Breach detected/OpenSensor
