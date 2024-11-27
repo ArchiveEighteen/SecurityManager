@@ -9,10 +9,10 @@ public class OpenSensor extends Sensor{
         // TODO: trigger alarm and log
     }
     public OpenSensor(UUID floorId, UUID sensorId) {
-        super(floorId, sensorId);
+        super(SensorType.OpenSensor, floorId, sensorId);
     }
 
     public OpenSensor(UUID id, UUID floorId, UUID roomId, boolean status) {
-        super(id, floorId, roomId, status);
+        super(SensorType.OpenSensor, id, floorId, roomId, status);
     }
 }
