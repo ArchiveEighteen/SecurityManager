@@ -14,7 +14,7 @@ public class JsonSerializer {
             .create();
 
     public static <T> void serialize(T object, String filePath) throws IOException {
-        try (Writer writer = new FileWriter(filePath)) {
+        try (Writer writer = new FileWriter(filePath, false)) {
             gson.toJson(object, writer);
         }
     }
@@ -25,3 +25,4 @@ public class JsonSerializer {
         }
     }
 }
+
