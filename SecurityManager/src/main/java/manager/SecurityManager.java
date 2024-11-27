@@ -6,6 +6,7 @@ import java.util.UUID;
 
 public class SecurityManager {
     private List<Floor> floors = new ArrayList<>();
+    Simulator simulator;
     // TODO: Add Journal private field
 
     public Floor addFloor() {
@@ -46,5 +47,15 @@ public class SecurityManager {
             }
         }
         return false;
+    }
+
+    public void startSimulation() {
+        simulator = new Simulator(this);
+        simulator.startSimulation();
+    }
+    public void stopSimulation() {
+        if(simulator != null) {
+            simulator.stopSimulation();
+        }
     }
 }

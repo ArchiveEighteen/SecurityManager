@@ -98,34 +98,6 @@ public class Simulator {
         final HashMap<Sensor, Long> sensorSleepTime = new HashMap<>();
 
         //Execute a trigger for a sensor and die
-        for (Sensor sensor: mySensors) {
-            myThreads.add(new Thread() {
-                @Override
-                public void run() {
-                    try {
-                        sleep(sensorSleepTime.get(sensor));
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-
-                    switch(sensor.getType())
-                    {
-                        case OpenSensor:
-                            ((manager.security.sensors.OpenSensor) sensor).detectBreach();
-                            break;
-                        case MotionSensor:
-                            ((manager.security.sensors.MotionSensor) sensor).detectMovement();
-                            break;
-                        case TemperatureSensor:
-                            double max = ((manager.security.sensors.TemperatureSensor) sensor).getMaxTemperature();
-                            double min = ((manager.security.sensors.TemperatureSensor) sensor).getMinTemperature();
-                            double randTemperature = min - ((max-min)/2.0) + (Math.random() * (2*(max-min)));
-                            ((manager.security.sensors.TemperatureSensor) sensor).changeTemperature(randTemperature);
-                            break;
-                    }
-                }
-            });
-        }
 
         while(running.get()) {
             //Create a timetable
@@ -140,8 +112,39 @@ public class Simulator {
             while(!hasSimultanious.get(0)) {
                 sensorSleepTime.forEach((sensor, time) -> {
                     if (!hasSimultanious.get(0) && Math.random() >= 0.5){
-                        time = (long)0;
+                        sensorSleepTime.put(sensor, 0l);
                         hasSimultanious.set(0,true);
+                    }
+                });
+            }
+
+            myThreads.clear();
+
+            for (Sensor sensor: mySensors) {
+                myThreads.add(new Thread() {
+                    @Override
+                    public void run() {
+                        try {
+                            sleep(sensorSleepTime.get(sensor));
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                        switch(sensor.getType())
+                        {
+                            case OpenSensor:
+                                ((manager.security.sensors.OpenSensor) sensor).detectBreach();
+                                break;
+                            case MotionSensor:
+                                ((manager.security.sensors.MotionSensor) sensor).detectMovement();
+                                break;
+                            case TemperatureSensor:
+                                double max = ((manager.security.sensors.TemperatureSensor) sensor).getMaxTemperature();
+                                double min = ((manager.security.sensors.TemperatureSensor) sensor).getMinTemperature();
+                                double randTemperature = min - ((max-min)/2.0) + (Math.random() * (2*(max-min)));
+                                ((manager.security.sensors.TemperatureSensor) sensor).changeTemperature(randTemperature);
+                                break;
+                        }
                     }
                 });
             }
